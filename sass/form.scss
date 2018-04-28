@@ -1,0 +1,9 @@
+$c_gray:#F0F3F8;     // 灰色 
+$c_orange:#D03600;    /* 橙色 */
+$c_graymin:#D2D2D2;   /* 浅灰色 */
+$c_graymin1:#D3D9E3;  /** 浅浅灰色 **/
+.in_bg{background:$c_gray;}
+.article a {
+  color: $c_gray;
+  &:hover { color: red }
+}
