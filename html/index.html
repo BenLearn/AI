@@ -6,22 +6,201 @@
     <title>监控中心嵌入ss页</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <link rel="stylesheet" href="../css/common.css">
-	<link rel="stylesheet" href="../css/form.css">
 	<link rel="stylesheet" href="../font/iconfont.css">	
+	<link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/common.css">
+	<link rel="stylesheet" href="../css/form.css">	
+	
   </head>
   <body class="in_bg">
-		<div class="article">
-			<a>5555</a>
-			<div><a>5555555</a></div>
-			<div>
-				<a>66666</a>
-				<div>
-					<a>855</a>
+		<header class="header">
+			<div class="clearfix header_box orange">
+				<div class="l">
+					<span class="iconfont icon-jiekou"></span>
+				</div>
+				<div class="r">
+					<span>接口预警</span>
+					<a>226</a>
 				</div>
 			</div>
-		</div>
-		
+			<div class="clearfix header_box green">
+				<div class="l">
+					<span class="iconfont icon-gaojing"></span>
+				</div>
+				<div class="r">
+					<span>接口预警</span>
+					<a>226</a>
+				</div>
+			</div>
+			<div class="clearfix header_box orange">
+				<div class="l">
+					<span class="iconfont icon-gaojing"></span>
+				</div>
+				<div class="r">
+					<span>接口预警</span>
+					<a>226</a>
+				</div>
+			</div>
+			<div class="clearfix header_box green">
+				<div class="l">
+					<span class="iconfont icon-gaojing"></span>
+				</div>
+				<div class="r">
+					<span>接口预警</span>
+					<a>226</a>
+				</div>
+			</div>
+			<div class="clearfix header_box orange">
+				<div class="l">
+					<span class="iconfont icon-gaojing"></span>
+				</div>
+				<div class="r">
+					<span>接口预警</span>
+					<a>226</a>
+				</div>
+			</div>
+		</header>
+		<!-- 主体start -->
+		<div>
+			<div class="row">
+				<div class="col-md-6 col-sm-12">
+					<div class="shadow01 index_box">
+						<div class="index_echart" id="indexCpu3"></div>
+					</div>
+				</div>
+				<div class="col-md-6 col-sm-12">
+					<div class="shadow01 index_box">
+						sss
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6 col-sm-12">
+					<div class="shadow01 index_box">
+						sss
+					</div>
+				</div>
+				<div class="col-md-6 col-sm-12">
+					<div class="shadow01 index_box">
+						sss
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6 col-sm-12">
+					<div class="shadow01 index_box">
+						sss
+					</div>
+				</div>
+				<div class="col-md-6 col-sm-12">
+					<div class="shadow01 index_box">
+						<div class="index_title">关注资源</div>
+						<div class="content">
+							
+							<table class="table border0 table_textline1">
+								<thead>
+									<tr>
+										<th style="width:20%;" class="display_in textline1"><div>资源名称资源名称资源名称资源名称资源名称资源名称资源名称</div></th>
+										<th><div>IP地址</div></th>
+										<th><div>监控类型</div></th>
+										<th><div>CPU利用率</div></th>
+										<th><div>内存利用率</div></th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td><div class="resources_color orange">应用服务器2</div></td>
+										<td><div>192.168.1.38</div></td>
+										<td><div>Windows服务器</div></td>
+										<td>
+											<div class="orange">
+												<div class="plan_box">
+													<div class="plan shine"  style="width:100%"><span></span></div>
+												</div>
+												<span class="num">100%</span>
+											</div>
+										</td>
+										<td>
+											<div class="green">
+												<div class="plan_box">
+													<div class="plan shine"  style="width:33%"><span></span></div>
+												</div>
+												<span class="num">33%</span>
+											</div>	
+										</td>
+									</tr>
+									<tr>
+										<td><div class="resources_color yellow">流程公开应用支撑服务器</div></td>
+										<td><div>192.168.1.38</div></td>
+										<td><div>Windows服务器</div></td>
+										<td>
+											<div class="yellow">
+												<div class="plan_box">
+													<div class="plan shine"  style="width:33%"><span></span></div>
+												</div>
+												<span class="num">33%</span>
+											</div>	
+										</td>
+										<td>
+											<div class="green">
+												<div class="plan_box">
+													<div class="plan green shine"  style="width:33%"><span></span></div>
+												</div>
+												<span class="num">33%</span>
+											</div>	
+										</td>
+									</tr>
+									<tr>
+										<td><div class="resources_color green">办公网万兆汇集交换机</div></td>
+										<td><div>192.168.1.38</div></td>
+										<td><div>Windows服务器</div></td>
+										<td>
+											<div class="green">
+												<div class="plan_box">
+													<div class="plan shine"  style="width:66%"><span></span></div>
+												</div>
+												<span class="num">66%</span>
+											</div>	
+										</td>
+										<td>
+											<div class="green">
+												<div class="plan_box">
+													<div class="plan shine"  style="width:33%"><span></span></div>
+												</div>
+												<span class="num">33%</span>
+											</div>	
+										</td>
+									</tr>
+									<tr>
+										<td><div class="resources_color green">判断流程和诉讼服务网判断流程判断流程和诉讼服务网判断流程</div></td>
+										<td><div>192.168.1.38</div></td>
+										<td><div>Windows服务器</div></td>
+										<td>
+											<div class="green">
+												<div class="plan_box">
+													<div class="plan shine"  style="width:66%"><span></span></div>
+												</div>
+												<span class="num">66%</span>
+											</div>	
+										</td>
+										<td>
+											<div class="green">
+												<div class="plan_box">
+													<div class="plan shine"  style="width:33%"><span></span></div>
+												</div>
+												<span class="num">33%</span>
+											</div>	
+										</td>
+									</tr>
+								</tbody>
+							</table>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>	
+		<!-- 主体end -->	
 				<div class="col-lg-12">
 						<h3 class="table_title">本周告警列表</h3>
 						<div class="table_white">  <!-- 白色皮肤出现的外边距 -->

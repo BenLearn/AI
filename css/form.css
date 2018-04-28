@@ -1,8 +1,102 @@
 @charset "UTF-8";
-/* 橙色 */
-/* 浅灰色 */
-/** 浅浅灰色 **/
-.article a {
-  color: #F0F3F8; }
-  .article a:hover {
-    color: red; }
+.in_bg {
+  background: #F0F3F8; }
+
+/** 头部 **/
+.header {
+  padding-top: 20px; }
+
+.header_box {
+  width: 20%;
+  float: left;
+  margin-bottom: 20px; }
+  .header_box .l {
+    width: 115px;
+    height: 115px;
+    float: left;
+    padding: 20px;
+    background: #fff;
+    text-align: center;
+    border: 1px solid #D3D9E3;
+    border-radius: 50%; }
+    @media screen and (max-width: 1200px) {
+      .header_box .l {
+        width: 100px;
+        height: 100px; } }
+    @media screen and (max-width: 1024px) {
+      .header_box .l {
+        width: 80px;
+        height: 80px; } }
+    @media screen and (max-width: 750px) {
+      .header_box .l {
+        width: 75px;
+        height: 75px; } }
+    .header_box .l span.iconfont {
+      font-size: 53px;
+      margin: 0 auto; }
+      @media screen and (max-width: 1200px) {
+        .header_box .l span.iconfont {
+          font-size: 42px; } }
+      @media screen and (max-width: 1024px) {
+        .header_box .l span.iconfont {
+          font-size: 32px; } }
+      @media screen and (max-width: 750px) {
+        .header_box .l span.iconfont {
+          font-size: 28px; } }
+  .header_box .r {
+    width: 50%;
+    float: left;
+    padding: 20px 0 0 5px; }
+    .header_box .r span {
+      font-size: 16px;
+      display: block;
+      margin-bottom: 4px; }
+      @media screen and (max-width: 1200px) {
+        .header_box .r span {
+          font-size: 14px; } }
+      @media screen and (max-width: 1024px) {
+        .header_box .r span {
+          font-size: 12px; } }
+    .header_box .r a {
+      font-size: 36px;
+      color: #666;
+      display: block; }
+      @media screen and (max-width: 1200px) {
+        .header_box .r a {
+          font-size: 36px; } }
+      @media screen and (max-width: 1024px) {
+        .header_box .r a {
+          font-size: 24px; } }
+      @media screen and (max-width: 750px) {
+        .header_box .r a {
+          font-size: 20px; } }
+
+.header_box.orange .l span.iconfont {
+  color: #D95E33; }
+
+.header_box.orange .r span {
+  color: #D03600; }
+
+.header_box.green .l span.iconfont {
+  color: #66C7B8; }
+
+.header_box.green .r span {
+  color: #40B9A6; }
+
+/** 首页主体 **/
+.index_box {
+  background: #fff;
+  position: relative;
+  padding: 15px; }
+  .index_box .index_title {
+    position: absolute;
+    left: 15px;
+    top: 20px;
+    color: #333;
+    font-size: 18px; }
+  .index_box .content {
+    margin-top: 15px; }
+
+.index_echart {
+  height: 700px;
+  margin: -15px; }

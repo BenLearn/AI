@@ -1,0 +1,47 @@
+//公共变量
+$c_gray:#F0F3F8;      // 灰色 
+$c_graymin1:#D3D9E3;  // 浅浅灰色 
+$c_orange:#D03600;    // 橙色 
+$icon_orange:#D95E33; // 橙色(图标)
+$c_green: #40B9A6;    // 绿色(字体)
+$icon_green:#66C7B8;  // 绿色(图标)
+$width_min:750px;       // 宽度(媒体选择)
+$width_md:1024px;
+$width_max:1200px;
+@mixin border1_gray{
+  border:1px solid $c_graymin1;  //边框颜色
+}
+@mixin radius50{  //边圆型
+  border-radius:50%;  
+}
+@mixin radius($num){  //椭圆
+    -moz-border-radius: $num; -webkit-border-radius: $num; border-radius: $num;
+}
+@mixin transition($type,$s){   //css3变化(类型，如宽, 秒)
+    -webkit-transition: $type $s ease-in-out;
+    -moz-transition: $type $s ease-in-out;
+    -ms-transition: $type $s ease-in-out;
+    -o-transition: $type $s ease-in-out;
+    transition: $type $s ease-in-out; 
+}
+@mixin linear01($start,$end){   //渐变
+  background-color: $start;
+  background-image: -webkit-linear-gradient(left, $start, $end);
+  background-image: -moz-linear-gradient(left, $start, $end);
+  background-image: -ms-linear-gradient(left, $start, $end);
+  background-image: -o-linear-gradient(left, $start, $end);
+  background-image: linear-gradient(left, $start, $end);
+}
+
+@-webkit-keyframes animate-shine { 0% {opacity: 0; width: 0;} 
+                                       50% {opacity: .5;} 
+                                       100% {opacity: 0; width: 95%;} 
+                                    }
+@-moz-keyframes animate-shine {    0% {opacity: 0; width: 0;}
+                                    50% {opacity: .5;}
+                                    100% {opacity: 0; width: 95%;} 
+                                }
+
+@mixin animation($name,$s){   //动画 (自定义命名，秒)
+    -webkit-animation: $name $s ease-out infinite; -moz-animation: $name $s ease-out infinite; 
+}
