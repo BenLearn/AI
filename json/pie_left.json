@@ -1,0 +1,112 @@
+{
+    "legend":["CPU","内存"],
+    "ID":["echartCpu3","echartMemory3"],
+    "sdata":[
+            [
+                [{
+                    "name": "CPU",
+                    "value": 83,
+                    "itemStyle":{"normal":{"color":"#44B7D3"}}                    
+                }, {
+                    "value": 17,
+                    "itemStyle": "placeHolderStyle"
+                }],
+                [{
+                    "name": "内存",
+                    "value": 60,
+                    "itemStyle":{"normal":{"color":"#DE1713"}}  
+                }, {
+                    "value": 40,
+                    "itemStyle": "placeHolderStyle1"
+                }]
+            ],[
+                [{
+                    "name": "CPU",
+                    "value": 85,
+                    "itemStyle":{"normal":{"color":"#44B7D3"}}  
+                }, {
+                    "value": 15,
+                    "itemStyle": "placeHolderStyle"
+                }],
+                [{
+                    "name": "内存",
+                    "value": 45,
+                    "itemStyle":{"normal":{"color":"#DE1713"}}  
+                }, {
+                    "value": 55,
+                    "itemStyle": "placeHolderStyle1"
+                }]
+            ],[
+                [{
+                    "name": "CPU",
+                    "value": 71,
+                    "itemStyle":{"normal":{"color":"#44B7D3"}}  
+                }, {
+                    "value": 29,
+                    "itemStyle": "placeHolderStyle"
+                }],
+                [{
+                    "name": "内存",
+                    "value": 43,
+                    "itemStyle":{"normal":{"color":"#DE1713"}}  
+                }, {
+                    "value": 57,
+                    "itemStyle": "placeHolderStyle1"
+                }]
+            ]	
+    ],
+    "bdata":[
+            [
+                [{
+                    "name": "内存",
+                    "value": 85,
+                    "itemStyle":{"normal":{"color":"#44B7D3"}}  
+                }, {
+                    "value": 15,
+                    "itemStyle": "placeHolderStyle"
+                }],
+                [{
+                    "name": "CPU",
+                    "value": 75,
+                    "itemStyle":{"normal":{"color":"#DE1713"}}  
+                }, {
+                    "value": 25,
+                    "itemStyle": "placeHolderStyle1"
+                }]
+            ],[
+                [{
+                    "name": "内存",
+                    "value": 85,
+                    "itemStyle":{"normal":{"color":"#44B7D3"}}  
+                }, {
+                    "value": 15,
+                    "itemStyle": "placeHolderStyle"
+                }],
+                [{
+                    "name": "CPU",
+                    "value": 45,
+                    "itemStyle":{"normal":{"color":"#DE1713"}}  
+                }, {
+                    "value": 55,
+                    "itemStyle": "placeHolderStyle1"
+                }]
+            ],[
+                [{
+                    "name": "内存",
+                    "value": 71,
+                    "itemStyle":{"normal":{"color":"#44B7D3"}}  
+                }, {
+                    "value": 29,
+                    "itemStyle": "placeHolderStyle"
+                }],
+                [{
+                    "name": "CPU",
+                    "value": 43,
+                    "itemStyle":{"normal":{"color":"#DE1713"}}  
+                }, {
+                    "value": 57,
+                    "itemStyle": "placeHolderStyle1"
+                }]
+            ]	
+    ]
+}        

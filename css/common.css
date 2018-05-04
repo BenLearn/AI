@@ -85,6 +85,9 @@ html .textl {
 .margin0 {
   margin: 0 !important; }
 
+.margin_r5 {
+  margin-right: 5px; }
+
 .padding0 {
   padding: 0 !important; }
 
@@ -158,7 +161,34 @@ html .textl {
   color: #e57b0d !important; }
 
 /**橙色**/
-/*ff6826 2018-1-3修改*/
+.pd15 {
+  padding: 15px; }
+
+/** 按钮 **/
+.btnSearch {
+  background: #D03600;
+  padding: 2px 8px; }
+  .btnSearch .iconfont {
+    font-size: 18px;
+    color: #fff; }
+
+.btnItsm {
+  padding: 3px 8px;
+  background: #409EFF;
+  color: #fff; }
+
+/** 标题 **/
+.table_title {
+  color: #333333;
+  position: relative;
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-size: 22px;
+  text-align: center;
+  position: relative; }
+  .table_title.f {
+    font-size: 16px !important; }
+
 /** 进度条 **/
 .plan_box {
   display: inline-block;
@@ -172,7 +202,7 @@ html .textl {
     height: 100%;
     display: inline-block;
     overflow: hidden; }
-    .plan_box .plan.shine:after {
+    .plan_box .plan span {
       display: inline-block;
       width: 100%;
       height: 100%;
@@ -189,30 +219,96 @@ html .textl {
       -ms-transition: width 0.4s ease-in-out;
       -o-transition: width 0.4s ease-in-out;
       transition: width 0.4s ease-in-out; }
-  .orange .plan_box {
-    background-color: #ffaf68;
-    background-image: -webkit-linear-gradient(left, #ffaf68, #e65100);
-    background-image: -moz-linear-gradient(left, #ffaf68, #e65100);
-    background-image: -ms-linear-gradient(left, #ffaf68, #e65100);
-    background-image: -o-linear-gradient(left, #ffaf68, #e65100);
-    background-image: linear-gradient(left, #ffaf68, #e65100); }
-    .orange .plan_box + .num {
-      color: #ffaf68; }
-  .yellow .plan_box {
-    background-color: #f2e9b6;
-    background-image: -webkit-linear-gradient(left, #f2e9b6, #ffc169);
-    background-image: -moz-linear-gradient(left, #f2e9b6, #ffc169);
-    background-image: -ms-linear-gradient(left, #f2e9b6, #ffc169);
-    background-image: -o-linear-gradient(left, #f2e9b6, #ffc169);
-    background-image: linear-gradient(left, #f2e9b6, #ffc169); }
-    .yellow .plan_box + .num {
-      color: #f2e9b6; }
-  .green .plan_box {
-    background-color: #44ddd4;
-    background-image: -webkit-linear-gradient(left, #44ddd4, #1dad84);
-    background-image: -moz-linear-gradient(left, #44ddd4, #1dad84);
-    background-image: -ms-linear-gradient(left, #44ddd4, #1dad84);
-    background-image: -o-linear-gradient(left, #44ddd4, #1dad84);
-    background-image: linear-gradient(left, #44ddd4, #1dad84); }
-    .green .plan_box + .num {
-      color: #44ddd4; }
+      .orange .plan_box .plan span {
+        background-color: #ffaf68;
+        background-image: -webkit-linear-gradient(left, #ffaf68, #e65100);
+        background-image: -moz-linear-gradient(left, #ffaf68, #e65100);
+        background-image: -ms-linear-gradient(left, #ffaf68, #e65100);
+        background-image: -o-linear-gradient(left, #ffaf68, #e65100);
+        background-image: linear-gradient(left, #ffaf68, #e65100); }
+      .yellow .plan_box .plan span {
+        background-color: #f2e9b6;
+        background-image: -webkit-linear-gradient(left, #f2e9b6, #ffc169);
+        background-image: -moz-linear-gradient(left, #f2e9b6, #ffc169);
+        background-image: -ms-linear-gradient(left, #f2e9b6, #ffc169);
+        background-image: -o-linear-gradient(left, #f2e9b6, #ffc169);
+        background-image: linear-gradient(left, #f2e9b6, #ffc169); }
+      .green .plan_box .plan span {
+        background-color: #44ddd4;
+        background-image: -webkit-linear-gradient(left, #44ddd4, #1dad84);
+        background-image: -moz-linear-gradient(left, #44ddd4, #1dad84);
+        background-image: -ms-linear-gradient(left, #44ddd4, #1dad84);
+        background-image: -o-linear-gradient(left, #44ddd4, #1dad84);
+        background-image: linear-gradient(left, #44ddd4, #1dad84); }
+      .plan_box .plan span.off {
+        -moz-border-radius: 10px 0 0 10px;
+        -webkit-border-radius: 10px 0 0 10px;
+        border-radius: 10px 0 0 10px; }
+  .plan_box .shine span {
+    position: relative; }
+    .plan_box .shine span:after {
+      content: '';
+      opacity: 0;
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background: #fff;
+      -moz-border-radius: 10px 0 0 10px;
+      -webkit-border-radius: 10px 0 0 10px;
+      border-radius: 10px 0 0 10px;
+      -webkit-animation: animate-shine 2s ease-out infinite;
+      -moz-animation: animate-shine 2s ease-out infinite; }
+  .orange .plan_box + .num {
+    color: #ffaf68; }
+  .yellow .plan_box + .num {
+    color: #f2e9b6; }
+  .green .plan_box + .num {
+    color: #44ddd4; }
+
+@-webkit-keyframes animate-shine {
+  0% {
+    opacity: 0;
+    width: 0; }
+  50% {
+    opacity: .5; }
+  100% {
+    opacity: 0;
+    width: 95%; } }
+
+@-moz-keyframes animate-shine {
+  0% {
+    opacity: 0;
+    width: 0; }
+  50% {
+    opacity: .5; }
+  100% {
+    opacity: 0;
+    width: 95%; } }
+
+@-o-keyframes animate-shine {
+  0% {
+    opacity: 0;
+    width: 0; }
+  50% {
+    opacity: .5; }
+  100% {
+    opacity: 0;
+    width: 95%; } }
+
+@keyframes animate-shine {
+  0% {
+    opacity: 0;
+    width: 0; }
+  50% {
+    opacity: .5; }
+  100% {
+    opacity: 0;
+    width: 95%; } }
+
+/** 时间插件dome **/
+.form_datetime {
+  background: #fff url(../img/data_bg.png) right 5px center no-repeat;
+  padding-right: 20px;
+  border: 0; }

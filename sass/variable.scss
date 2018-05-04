@@ -5,6 +5,7 @@ $c_orange:#D03600;    // 橙色
 $icon_orange:#D95E33; // 橙色(图标)
 $c_green: #40B9A6;    // 绿色(字体)
 $icon_green:#66C7B8;  // 绿色(图标)
+$c_blue:#0073D5;      // 蓝色(字体)
 $width_min:750px;       // 宽度(媒体选择)
 $width_md:1024px;
 $width_max:1200px;
@@ -33,14 +34,28 @@ $width_max:1200px;
   background-image: linear-gradient(left, $start, $end);
 }
 
-@-webkit-keyframes animate-shine { 0% {opacity: 0; width: 0;} 
-                                       50% {opacity: .5;} 
-                                       100% {opacity: 0; width: 95%;} 
-                                    }
-@-moz-keyframes animate-shine {    0% {opacity: 0; width: 0;}
-                                    50% {opacity: .5;}
-                                    100% {opacity: 0; width: 95%;} 
-                                }
+@mixin keyframes($animationName){  //$animationName: css3 变化名称
+    @-webkit-keyframes #{$animationName} { 
+        0% {opacity: 0; width: 0;}
+        50% {opacity: .5;}
+        100% {opacity: 0; width: 95%;}  
+    } 
+    @-moz-keyframes #{$animationName} { 
+        0% {opacity: 0; width: 0;}
+        50% {opacity: .5;}
+        100% {opacity: 0; width: 95%;}  
+    } 
+    @-o-keyframes #{$animationName} { 
+        0% {opacity: 0; width: 0;}
+        50% {opacity: .5;}
+        100% {opacity: 0; width: 95%;}  
+    } 
+    @keyframes #{$animationName} {
+        0% {opacity: 0; width: 0;}
+        50% {opacity: .5;}
+        100% {opacity: 0; width: 95%;}  
+    }
+}
 
 @mixin animation($name,$s){   //动画 (自定义命名，秒)
     -webkit-animation: $name $s ease-out infinite; -moz-animation: $name $s ease-out infinite; 

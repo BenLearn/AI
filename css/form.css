@@ -2,6 +2,15 @@
 .in_bg {
   background: #F0F3F8; }
 
+/** 框架上面 **/
+.index_t {
+  border-bottom: 1px solid #F0F3F8;
+  padding: 15px 0; }
+  .index_t .title {
+    color: #333333;
+    font-size: 24px;
+    margin-right: 20px; }
+
 /** 头部 **/
 .header {
   padding-top: 20px; }
@@ -87,16 +96,110 @@
 .index_box {
   background: #fff;
   position: relative;
-  padding: 15px; }
+  padding: 15px;
+  margin-bottom: 15px; }
   .index_box .index_title {
     position: absolute;
     left: 15px;
     top: 20px;
     color: #333;
-    font-size: 18px; }
+    font-size: 18px;
+    font-weight: 700; }
   .index_box .content {
-    margin-top: 15px; }
+    margin-top: 40px; }
+    .index_box .content table tbody tr td:first-child {
+      color: #0073D5; }
 
-.index_echart {
-  height: 700px;
+.attention_title_list {
+  background: #F1F1F1;
+  border-radius: 3px;
+  padding: 7px 0;
+  margin-bottom: 20px; }
+  .attention_title_list > span {
+    display: inline-block;
+    float: left;
+    width: 25%;
+    position: relative;
+    text-align: center;
+    color: #666; }
+    .attention_title_list > span::before {
+      content: '';
+      position: absolute;
+      right: 0;
+      top: 0;
+      height: 100%;
+      border-left: 1px solid #999; }
+    .attention_title_list > span.off::before {
+      border: 0; }
+
+.attention_line {
+  position: relative; }
+  .attention_line::before {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 47px;
+    bottom: 10px;
+    border-left: 1px solid #999; }
+
+.attention_box {
+  float: left;
+  width: 33.33%; }
+
+.attention_box_auto {
+  height: 450px;
+  position: relative;
+  overflow-y: auto; }
+
+.attention_box_auto_p {
+  padding-left: 30px;
+  padding-right: 30px; }
+
+.attention_key {
+  position: relative;
+  margin-bottom: 15px;
+  padding-left: 25px; }
+  .attention_key.key_ok span {
+    color: #1FC28E; }
+  .attention_key.key_ok::before {
+    width: 20px;
+    background: url(../img/key_ok.png) no-repeat; }
+  .attention_key.key_off::before {
+    width: 20px;
+    background: url(../img/key_off.png) no-repeat; }
+  .attention_key.key_ok::before, .attention_key.key_off::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    height: 18px;
+    margin-top: -9px; }
+  .attention_key span, .attention_key a {
+    width: 100%;
+    display: inline-block;
+    color: #666; }
+
+.attention_box_name {
+  color: #666; }
+
+.attention02_key {
+  margin-bottom: 20px; }
+  .attention02_key > span {
+    display: block;
+    float: left;
+    width: 60%;
+    color: #666; }
+  .attention02_key > a {
+    display: block;
+    float: left;
+    width: 40%;
+    color: #1FC28E;
+    text-align: right; }
+
+/** echart 定义宽高 **/
+.index_pie {
+  height: 280px;
   margin: -15px; }
+
+.index_gauge {
+  height: 44%; }

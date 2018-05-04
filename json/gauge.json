@@ -1,0 +1,12 @@
+{
+    "left": {
+        "gauge_ID" : ["index_gauge01","index_gauge02"],
+        "gauge_name":["CPU平均使用率","内存平均使用率"],
+        "gauge_value_list":["56","90"]
+    },
+    "right":{
+        "gauge_ID" : ["index_gauge03","index_gauge04","index_gauge05","index_gauge06"],
+        "gauge_name":["主机CPU平均使用率","应用CPU平均使用率","主机内存平均使用率","应用内存平均使用率"],
+		"gauge_value_list":["27","28","29","30"]
+    }    
+}        

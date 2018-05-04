@@ -24,6 +24,7 @@ html .textl{text-align: left!important;}
     -webkit-transition: all 0.3s;	/* Safari 和 Chrome */
     -o-transition: all 0.3s;}
 .margin0{margin:0!important;}
+.margin_r5{margin-right:5px;}
 .padding0{padding:0!important;}
 .padding15{padding:15!important;}
 .button_inbg{background: -moz-linear-gradient( 90deg, rgb(5,124,199) 0%, rgb(41,155,227) 100%);    /** 按钮 渐变 **/
@@ -53,7 +54,38 @@ html .textl{text-align: left!important;}
 .red_c{color:#e65100!important;}     /**红色**/
 .green_c{color:#1fc28e!important;}   /**绿色**/
 .yellow_c{color:#fcea92!important;}  /**黄色**/
-.orange_c{color:#e57b0d!important;}  /**橙色**/    /*ff6826 2018-1-3修改*/
+.orange_c{color:#e57b0d!important;}  /**橙色**/    
+
+.pd15{padding:15px;}
+
+/** 按钮 **/
+.btnSearch{
+  background: #D03600;
+  padding: 2px 8px;
+  .iconfont{
+    font-size: 18px;
+    color:#fff;
+  }
+}
+.btnItsm{
+  padding: 3px 8px;
+  background: #409EFF;
+  color:#fff;
+}
+
+/** 标题 **/
+.table_title{
+  color: #333333;
+  position: relative;
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-size: 22px;
+  text-align: center;
+  position: relative;
+  &.f{
+    font-size: 16px!important;
+  }
+}
 
 /** 进度条 **/
 .plan_box{
@@ -69,6 +101,15 @@ html .textl{text-align: left!important;}
         box-shadow: 0 1px 0 rgba(255, 255, 255, .5) inset;
         @include radius(10px);
         @include transition(width,.4s);
+        .orange & {
+          @include linear01(#ffaf68,#e65100); //渐变
+        }
+        .yellow & {
+          @include linear01(#f2e9b6,#ffc169); //渐变
+        }  
+        .green & {
+          @include linear01(#44ddd4,#1dad84); //渐变
+        }
         &.off{
           @include radius(10px 0 0 10px);
         }
@@ -86,15 +127,21 @@ html .textl{text-align: left!important;}
     }  
   
   .orange & {
-    @include linear01(#ffaf68,#e65100); //渐变
     +.num{color:#ffaf68;}
   }
   .yellow & {
-    @include linear01(#f2e9b6,#ffc169); //渐变
     +.num{color:#f2e9b6;}
   }  
   .green & {
-    @include linear01(#44ddd4,#1dad84); //渐变
     +.num{color:#44ddd4;}
   }
+}
+
+@include keyframes(animate-shine); //动画实例
+
+/** 时间插件dome **/
+.form_datetime{
+  background: #fff url(../img/data_bg.png) right 5px center no-repeat; 
+  padding-right: 20px; 
+  border:0;
 }

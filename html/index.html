@@ -6,14 +6,40 @@
     <title>监控中心嵌入ss页</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-	<link rel="stylesheet" href="../font/iconfont.css">	
+	<link rel="stylesheet" href="../fonts/iconfont.css">	
 	<link rel="stylesheet" href="../css/bootstrap.min.css">
+	<link rel="stylesheet" href="../css/perfect-scrollbar.min.css">
+	<link rel="stylesheet" href="../css/bootstrap-datetimepicker.css">	
     <link rel="stylesheet" href="../css/common.css">
 	<link rel="stylesheet" href="../css/form.css">	
 	
   </head>
   <body class="in_bg">
-		<header class="header">
+	<div class="index_t clearfix">
+		<div class="pull-left title">监控概览</div>
+		<div class="pull-left form-inline form-group">
+			<div class="form-group">
+				<label>选择日期</label>
+				<input type="text" value="" class="form-control form_datetime" placeholder="请选择时间">
+			</div>
+			<div class="form-group">
+				<label>&nbsp;&nbsp;至&nbsp;&nbsp;</label>
+				<input type="text" value="" class="form-control form_datetime" placeholder="请选择时间">
+			</div>
+			<div class="form-group">
+				<button type="button" class="btn btnSearch" style="margin-left:10px;">
+					<span class="iconfont icon-search" data-toggle="tooltip" data-placement="bottom" title="搜索"></span>
+				</button>
+			</div>
+		</div>
+		<div class="pull-right">
+			<button class="btn btnItsm">
+				<img src="../img/jian.png">&nbsp;&nbsp;ITSM
+			</button>
+		</div>
+	</div>
+	<div class="pd15">
+		<header class="header clearfix">
 			<div class="clearfix header_box orange">
 				<div class="l">
 					<span class="iconfont icon-jiekou"></span>
@@ -65,35 +91,26 @@
 			<div class="row">
 				<div class="col-md-6 col-sm-12">
 					<div class="shadow01 index_box">
-						<div class="index_echart" id="indexCpu3"></div>
+						<div class="index_title">CPU使用率TOP3</div>
+						<div class="index_pie" id="echartCpu3"></div>
 					</div>
 				</div>
 				<div class="col-md-6 col-sm-12">
 					<div class="shadow01 index_box">
-						sss
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-6 col-sm-12">
-					<div class="shadow01 index_box">
-						sss
-					</div>
-				</div>
-				<div class="col-md-6 col-sm-12">
-					<div class="shadow01 index_box">
-						sss
+						<div class="index_title">告警总览</div>
+						<div class="index_pie" id="echartAlarm3"></div>
 					</div>
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-md-6 col-sm-12">
 					<div class="shadow01 index_box">
-						sss
+						<div class="index_title">内存使用率TOP3</div>
+						<div class="index_pie" id="echartMemory3"></div>
 					</div>
 				</div>
 				<div class="col-md-6 col-sm-12">
-					<div class="shadow01 index_box">
+					<div class="shadow01 index_box">						
 						<div class="index_title">关注资源</div>
 						<div class="content">
 							
@@ -150,12 +167,12 @@
 											</div>	
 										</td>
 									</tr>
-									<tr>
+									<tr class="green">
 										<td><div class="resources_color green">办公网万兆汇集交换机</div></td>
 										<td><div>192.168.1.38</div></td>
 										<td><div>Windows服务器</div></td>
 										<td>
-											<div class="green">
+											<div>
 												<div class="plan_box">
 													<div class="plan shine"  style="width:66%"><span></span></div>
 												</div>
@@ -163,7 +180,7 @@
 											</div>	
 										</td>
 										<td>
-											<div class="green">
+											<div>
 												<div class="plan_box">
 													<div class="plan shine"  style="width:33%"><span></span></div>
 												</div>
@@ -171,12 +188,12 @@
 											</div>	
 										</td>
 									</tr>
-									<tr>
+									<tr class="green">
 										<td><div class="resources_color green">判断流程和诉讼服务网判断流程判断流程和诉讼服务网判断流程</div></td>
 										<td><div>192.168.1.38</div></td>
 										<td><div>Windows服务器</div></td>
 										<td>
-											<div class="green">
+											<div>
 												<div class="plan_box">
 													<div class="plan shine"  style="width:66%"><span></span></div>
 												</div>
@@ -184,9 +201,9 @@
 											</div>	
 										</td>
 										<td>
-											<div class="green">
+											<div>
 												<div class="plan_box">
-													<div class="plan shine"  style="width:33%"><span></span></div>
+													<div class="plan shine"  style="width:33%"><span class="off"></span></div>
 												</div>
 												<span class="num">33%</span>
 											</div>	
@@ -196,173 +213,339 @@
 							</table>
 
 						</div>
+
 					</div>
 				</div>
 			</div>
+			<div class="row">
+				<div class="col-md-6 col-sm-12">
+					<div class="shadow01 index_box">
+						<div class="index_title">关注主机</div>
+						<div class="content">
+								<div class="attention_title_list clearfix">
+									<span class="textline1">当前状态：严重</span>
+									<span class="textline1">IP地址：192.168.1.38</span>
+									<span class="textline1">操作系统：windows(SNMP)</span>
+									<span class="textline1 off">主机名称：应用服务器2</span>
+								</div>
+								<div class="attention_content clearfix">
+									<div class="attention_box attention_line">
+											<h3 class="table_title textline1 index_title_min f" title="CPU平均使用率">CPU平均使用率</h3>
+										<div class="attention_box_auto" id="attention_box_auto01">
+											<div class="index_gauge" id="index_gauge01"></div>
+											<h3 class="table_title textline1 index_title_min f" title="内存平均使用率">内存平均使用率</h3>
+											<div class="index_gauge" id="index_gauge02"></div>
+										</div>
+									</div>
+									<div class="attention_box attention_line">
+										<h3 class="table_title textline1 index_title_min f" title="分区使用率">分区使用率</h3>
+										<div class="attention_box_auto attention_box_auto_p" id="attention_box_auto02">
+											<div class="form-group green">
+												<div class="attention_box_name">分区C :</div>
+												<div class="plan_box">
+													<div class="plan shine"  style="width:33%"><span></span></div>
+												</div>
+												<span class="num">33%</span>
+											</div>
+											<div class="form-group yellow">	
+												<div class="attention_box_name">分区D :</div>
+												<div class="plan_box">
+													<div class="plan shine"  style="width:66%"><span></span></div>
+												</div>
+												<span class="num">66%</span>
+											</div>
+											<div class="form-group orange">	
+												<div class="attention_box_name">分区F :</div>
+												<div class="plan_box">
+													<div class="plan shine"  style="width:96%"><span></span></div>
+												</div>
+												<span class="num">96%</span>
+											</div>
+										</div>
+									</div>
+									<div class="attention_box">
+										<h3 class="table_title textline1 index_title_min f" title="接口状态">接口状态</h3>
+										<div class="attention_box_auto attention_box_auto_p" id="attention_box_auto03">
+											<div class="attention_key key_ok">
+												<a class="textline1" href="javascript:" title="Intel(R) PRO/1000 MT">Intel(R) PRO/1000 MT NetIntel(R) PRO/1000 MT Net</a>
+												<span class="green">接口正常</span>
+											</div>
+											<div class="attention_key key_off">
+												<a class="textline1" href="javascript:" title="Intel(R) PRO/1000 MT">Intel(R) PRO/1000 MT Net</a>
+												<span class="green">接口正常</span>
+											</div>
+											<div class="attention_key key_ok">
+												<a class="textline1" href="javascript:" title="Intel(R) PRO/1000 MT">Intel(R) PRO/1000 MT Net</a>
+												<span class="green">接口正常</span>
+											</div>
+											<div class="attention_key key_ok"><a class="textline1" href="javascript:" title="Intel(R) PRO/1000 MT">Intel(R) PRO/1000 MT Net</a><span class="green">接口正常</span></div>
+											<div class="attention_key key_ok"><a class="textline1" href="javascript:" title="Intel(R) PRO/1000 MT">Intel(R) PRO/1000 MT Net</a><span class="green">接口正常</span></div>
+											<div class="attention_key key_ok"><a class="textline1" href="javascript:" title="Intel(R) PRO/1000 MT">Intel(R) PRO/1000 MT Net</a><span class="green">接口正常</span></div>
+											<div class="attention_key key_ok"><a class="textline1" href="javascript:" title="Intel(R) PRO/1000 MT">Intel(R) PRO/1000 MT Net</a><span class="green">接口正常</span></div>
+											<div class="attention_key key_ok"><a class="textline1" href="javascript:" title="Intel(R) PRO/1000 MT">Intel(R) PRO/1000 MT Net</a><span class="green">接口正常</span></div>
+											<div class="attention_key key_ok"><a class="textline1" href="javascript:" title="Intel(R) PRO/1000 MT">Intel(R) PRO/1000 MT Net</a><span class="green">接口正常</span></div>
+											<div class="attention_key key_ok"><a class="textline1" href="javascript:" title="Intel(R) PRO/1000 MT">Intel(R) PRO/1000 MT Net</a><span class="green">接口正常</span></div>
+										</div>
+									</div>
+								</div>
+			
+								
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6 col-sm-12">
+					<div class="shadow01 index_box">
+						<div class="index_title">关注应用</div>
+						<div class="content">
+
+								<div class="attention_title_list clearfix">
+									<span class="textline1">当前状态：严重</span>
+									<span class="textline1">IP地址：192.168.1.38</span>
+									<span class="textline1">操作系统：windows(SNMP)</span>
+									<span class="textline1 off">主机名称：应用服务器2</span>
+								</div>
+								<div class="attention_content clearfix">
+									<div class="attention_box attention_line">
+											<h3 class="table_title textline1 index_title_min f" title="主机CPU平均使用率">主机CPU平均使用率</h3>
+										<div class="attention_box_auto" id="attention_box_auto04">
+											<div class="index_gauge" id="index_gauge03"></div>
+											<h3 class="table_title textline1 index_title_min f" title="应用CPU平均使用率">应用CPU平均使用率</h3>
+											<div class="index_gauge" id="index_gauge04"></div>
+										</div>
+									</div>
+									<div class="attention_box attention_line">
+											<h3 class="table_title textline1 index_title_min f" title="主机内存平均使用率">主机内存平均使用率</h3>
+										<div class="attention_box_auto" id="attention_box_auto05">
+											<div class="index_gauge" id="index_gauge05"></div>
+											<h3 class="table_title textline1 index_title_min f" title="应用内存平均使用率">应用内存平均使用率</h3>
+											<div class="index_gauge" id="index_gauge06"></div>
+										</div>
+									</div>	
+									<div class="attention_box">
+										<h3 class="table_title textline1 index_title_min f" title="Microsoft IIS 性能指标">Microsoft IIS 性能指标</h3>
+										<div class="attention_box_auto attention_box_auto_p" id="attention_box_auto06">
+											<div class="attention02_key clearfix">
+												<span class="textline1" title="每秒传输的字节总数">每秒传输的字节总数</span>
+												<a class="textline1" href="javascript:" title="0B">0B</a>
+											</div>
+											<div class="attention02_key clearfix">
+												<span class="textline1" title="CPUl利用率">CPUl利用率</span>
+												<a class="textline1" href="javascript:" title="34%">34%</a>
+											</div>
+											<div class="attention02_key clearfix">
+												<span class="textline1" title="当前连接数">当前连接数</span>
+												<a class="textline1" href="javascript:" title="0个">0个</a>
+											</div>
+											<div class="attention02_key clearfix">
+												<span class="textline1" title="IIS 内存利用率">IIS 内存利用率</span>
+												<a class="textline1" href="javascript:" title="1%">1%</a>
+											</div>
+											<div class="attention02_key clearfix">
+												<span class="textline1" title="每秒传输的字节总数">每秒传输的字节总数</span>
+												<a class="textline1" href="javascript:" title="1345987B">1345987B</a>
+											</div>
+											<div class="attention02_key clearfix">
+												<span class="textline1" title="当前匿名用户数">当前匿名用户数</span>
+												<a class="textline1" href="javascript:" title="0个">0个</a>
+											</div>
+											<div class="attention02_key clearfix">
+												<span class="textline1" title="GET请求速率">GET请求速率</span>
+												<a class="textline1" href="javascript:" title="1ms">1ms</a>
+											</div>
+											<div class="attention02_key clearfix">
+												<span class="textline1" title="响应时间">响应时间</span>
+												<a class="textline1" href="javascript:" title="1ms">1ms</a>
+											</div>
+											<div class="attention02_key clearfix">
+												<span class="textline1" title="IIS  CPU  利用率">IIS  CPU  利用率</span>
+												<a class="textline1" href="javascript:" title="0B">0B</a>
+											</div>
+											<div class="attention02_key clearfix">
+												<span class="textline1" title="每秒接受字节数">每秒接受字节数</span>
+												<a class="textline1" href="javascript:" title="76%">76%</a>
+											</div>
+										</div>
+									</div>
+		
+								</div>
+				
+
+
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+					<div class="col-lg-12">
+						<div class="index_box">
+							<div class="index_title">本周告警列表</div>
+							<div class="content">
+								<table class="table table-bordered" style="margin-bottom:0">
+									<thead>
+										<tr>
+										<th></th>
+										<th>标题</th>
+										<th>来源</th>
+										<th>类型</th>
+										<th>处理人</th>
+										<th class="text-center">重要程度</th>
+										<th>状态</th>
+										<th>发生时间</th>
+										<th>最后发生时间</th>
+										<th>操作</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+										<th scope="row">
+											<input type="checkbox" checked>
+										</th>
+										<td>WIN-N44K38L4LV4_cms_web上的查询在缓存中的命中率指标产生主要级别告警</td>
+										<td>WIN-N44K38L4LV4_cms_web</td>
+										<td>Mysql</td>
+										<td>一线运维1</td>
+										<td class="text-center color_or">主要</td>
+										<td>未确认</td>
+										<td>2017-05-16  11:35:15</td>
+										<td>2017-05-16  11:35:15</td>
+										<td class="text-center">									
+											<a href="javascript:" class="iconfont icon-operate_list_01 margin_r5" data-toggle="tooltip" data-placement="bottom" title="确认"></a>
+											<a href="javascript:" class="iconfont icon-operate_list_02 margin_r5" data-toggle="tooltip" data-placement="bottom" title="确认"></a>
+											<a href="javascript:" class="iconfont icon-operate_list_03 margin_r5" data-toggle="tooltip" data-placement="bottom" title="删除"></a>
+											<a href="javascript:" class="iconfont icon-operate_list_04" data-toggle="tooltip" data-placement="bottom" title="拓扑"></a>
+										</td>
+										</tr>
+										<tr>
+										<th scope="row">
+											<input type="checkbox">
+										</th>
+										<td>WIN-N44K38L4LV4_cms_web上的查询在缓存中的命中率指标产生主要级别告警</td>
+										<td>WIN-N44K38L4LV4_cms_web</td>
+										<td>Mysql</td>
+										<td>一线运维1</td>
+										<td class="text-center color_or">主要</td>
+										<td>未确认</td>
+										<td>2017-05-16  11:35:15</td>
+										<td>2017-05-16  11:35:15</td>
+										<td class="text-center">									
+											<a href="javascript:" class="iconfont icon-operate_list_01 margin_r5" data-toggle="tooltip" data-placement="bottom" title="确认"></a>
+											<a href="javascript:" class="iconfont icon-operate_list_02 margin_r5" data-toggle="tooltip" data-placement="bottom" title="确认"></a>
+											<a href="javascript:" class="iconfont icon-operate_list_03 margin_r5" data-toggle="tooltip" data-placement="bottom" title="删除"></a>
+											<a href="javascript:" class="iconfont icon-operate_list_04" data-toggle="tooltip" data-placement="bottom" title="拓扑"></a>
+										</td>
+										</tr>
+										<tr>
+										<th scope="row">
+											<input type="checkbox">
+										</th>
+										<td>WIN-N44K38L4LV4_cms_web上的查询在缓存中的命中率指标产生主要级别告警</td>
+										<td>WIN-N44K38L4LV4_cms_web</td>
+										<td>Mysql</td>
+										<td>一线运维1</td>
+										<td class="text-center color_or">主要</td>
+										<td>未确认</td>
+										<td>2017-05-16  11:35:15</td>
+										<td>2017-05-16  11:35:15</td>
+										<td class="text-center">									
+											<a href="javascript:" class="iconfont icon-operate_list_01 margin_r5" data-toggle="tooltip" data-placement="bottom" title="确认"></a>
+											<a href="javascript:" class="iconfont icon-operate_list_02 margin_r5" data-toggle="tooltip" data-placement="bottom" title="确认"></a>
+											<a href="javascript:" class="iconfont icon-operate_list_03 margin_r5" data-toggle="tooltip" data-placement="bottom" title="删除"></a>
+											<a href="javascript:" class="iconfont icon-operate_list_04" data-toggle="tooltip" data-placement="bottom" title="拓扑"></a>
+										</td>
+										</tr>
+										<tr>
+										<th scope="row">
+											<input type="checkbox">
+										</th>
+										<td>WIN-N44K38L4LV4_cms_web上的查询在缓存中的命中率指标产生主要级别告警</td>
+										<td>WIN-N44K38L4LV4_cms_web</td>
+										<td>Mysql</td>
+										<td>一线运维1</td>
+										<td class="text-center">警告</td>
+										<td>未确认</td>
+										<td>2017-05-16  11:35:15</td>
+										<td>2017-05-16  11:35:15</td>
+										<td class="text-center">									
+											<a href="javascript:" class="iconfont icon-operate_list_01 margin_r5" data-toggle="tooltip" data-placement="bottom" title="确认"></a>
+											<a href="javascript:" class="iconfont icon-operate_list_02 margin_r5" data-toggle="tooltip" data-placement="bottom" title="确认"></a>
+											<a href="javascript:" class="iconfont icon-operate_list_03 margin_r5" data-toggle="tooltip" data-placement="bottom" title="删除"></a>
+											<a href="javascript:" class="iconfont icon-operate_list_04" data-toggle="tooltip" data-placement="bottom" title="拓扑"></a>
+										</td>
+										</tr>
+									</tbody>
+									</table>
+									<!-- 分页 -->
+									<nav aria-label="Page navigation" class="clearfix navigation_bg">
+									<ul class="pagination pull-right">
+										<li>
+										<a href="javascript:" aria-label="Previous" data-toggle="tooltip" data-placement="top" title="上一页">
+											<span aria-hidden="true">&laquo;</span>&nbsp;上一页
+										</a>
+										</li>
+										<li><a href="#">1</a></li>
+										<li><a href="#">2</a></li>
+										<li><a href="#">3</a></li>
+										<li><a href="#">4</a></li>
+										<li><a href="#">5</a></li>
+										<li>
+										<a href="javascript:" aria-label="Next" data-toggle="tooltip" data-placement="top" title="下一页">
+											下一页&nbsp;<span aria-hidden="true">&raquo;</span>
+										</a>
+										</li>
+									</ul>
+									</nav>
+							</div>
+						</div>		
+					</div>	
+			</div>
 		</div>	
 		<!-- 主体end -->	
-				<div class="col-lg-12">
-						<h3 class="table_title">本周告警列表</h3>
-						<div class="table_white">  <!-- 白色皮肤出现的外边距 -->
-							<table class="table table-bordered" style="margin-bottom:0">
-								<thead>
-									<tr>
-									<th></th>
-									<th>标题</th>
-									<th>来源</th>
-									<th>类型</th>
-									<th>处理人</th>
-									<th class="text-center">重要程度</th>
-									<th>状态</th>
-									<th>发生时间</th>
-									<th>最后发生时间</th>
-									<th>操作</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-									<th scope="row">
-										<input type="checkbox" checked>
-									</th>
-									<td>WIN-N44K38L4LV4_cms_web上的查询在缓存中的命中率指标产生主要级别告警</td>
-									<td>WIN-N44K38L4LV4_cms_web</td>
-									<td>Mysql</td>
-									<td>一线运维1</td>
-									<td class="text-center color_or">主要</td>
-									<td>未确认</td>
-									<td>2017-05-16  11:35:15</td>
-									<td>2017-05-16  11:35:15</td>
-									<td class="text-center">									
-										<a href="javascript:" class="operate_list operate_list_01" data-toggle="tooltip" data-placement="bottom" title="确认"></a>
-										<a href="javascript:" class="operate_list operate_list_02" data-toggle="tooltip" data-placement="bottom" title="确认"></a>
-										<a href="javascript:" class="operate_list operate_list_03" data-toggle="tooltip" data-placement="bottom" title="删除"></a>
-										<a href="javascript:" class="operate_list operate_list_04" data-toggle="tooltip" data-placement="bottom" title="拓扑"></a>
-									</td>
-									</tr>
-									<tr>
-									<th scope="row">
-										<input type="checkbox">
-									</th>
-									<td>WIN-N44K38L4LV4_cms_web上的查询在缓存中的命中率指标产生主要级别告警</td>
-									<td>WIN-N44K38L4LV4_cms_web</td>
-									<td>Mysql</td>
-									<td>一线运维1</td>
-									<td class="text-center color_or">主要</td>
-									<td>未确认</td>
-									<td>2017-05-16  11:35:15</td>
-									<td>2017-05-16  11:35:15</td>
-									<td class="text-center">									
-										<a href="javascript:" class="operate_list operate_list_01" data-toggle="tooltip" data-placement="bottom" title="确认"></a>
-										<a href="javascript:" class="operate_list operate_list_02" data-toggle="tooltip" data-placement="bottom" title="确认"></a>
-										<a href="javascript:" class="operate_list operate_list_03" data-toggle="tooltip" data-placement="bottom" title="删除"></a>
-										<a href="javascript:" class="operate_list operate_list_04" data-toggle="tooltip" data-placement="bottom" title="拓扑"></a>
-									</td>
-									</tr>
-									<tr>
-									<th scope="row">
-										<input type="checkbox">
-									</th>
-									<td>WIN-N44K38L4LV4_cms_web上的查询在缓存中的命中率指标产生主要级别告警</td>
-									<td>WIN-N44K38L4LV4_cms_web</td>
-									<td>Mysql</td>
-									<td>一线运维1</td>
-									<td class="text-center color_or">主要</td>
-									<td>未确认</td>
-									<td>2017-05-16  11:35:15</td>
-									<td>2017-05-16  11:35:15</td>
-									<td class="text-center">									
-										<a href="javascript:" class="operate_list operate_list_01" data-toggle="tooltip" data-placement="bottom" title="确认"></a>
-										<a href="javascript:" class="operate_list operate_list_02" data-toggle="tooltip" data-placement="bottom" title="确认"></a>
-										<a href="javascript:" class="operate_list operate_list_03" data-toggle="tooltip" data-placement="bottom" title="删除"></a>
-										<a href="javascript:" class="operate_list operate_list_04" data-toggle="tooltip" data-placement="bottom" title="拓扑"></a>
-									</td>
-									</tr>
-									<tr>
-									<th scope="row">
-										<input type="checkbox">
-									</th>
-									<td>WIN-N44K38L4LV4_cms_web上的查询在缓存中的命中率指标产生主要级别告警</td>
-									<td>WIN-N44K38L4LV4_cms_web</td>
-									<td>Mysql</td>
-									<td>一线运维1</td>
-									<td class="text-center">警告</td>
-									<td>未确认</td>
-									<td>2017-05-16  11:35:15</td>
-									<td>2017-05-16  11:35:15</td>
-									<td class="text-center">									
-										<a href="javascript:" class="operate_list operate_list_01" data-toggle="tooltip" data-placement="bottom" title="确认"></a>
-										<a href="javascript:" class="operate_list operate_list_02" data-toggle="tooltip" data-placement="bottom" title="确认"></a>
-										<a href="javascript:" class="operate_list operate_list_03" data-toggle="tooltip" data-placement="bottom" title="删除"></a>
-										<a href="javascript:" class="operate_list operate_list_04" data-toggle="tooltip" data-placement="bottom" title="拓扑"></a>
-									</td>
-									</tr>
-								</tbody>
-								</table>
-								<!-- 分页 -->
-								<nav aria-label="Page navigation" class="clearfix navigation_bg">
-								<ul class="pagination pull-right">
-									<li>
-									<a href="javascript:" aria-label="Previous" data-toggle="tooltip" data-placement="top" title="上一页">
-										<span aria-hidden="true">&laquo;</span>&nbsp;上一页
-									</a>
-									</li>
-									<li><a href="#">1</a></li>
-									<li><a href="#">2</a></li>
-									<li><a href="#">3</a></li>
-									<li><a href="#">4</a></li>
-									<li><a href="#">5</a></li>
-									<li>
-									<a href="javascript:" aria-label="Next" data-toggle="tooltip" data-placement="top" title="下一页">
-										下一页&nbsp;<span aria-hidden="true">&raquo;</span>
-									</a>
-									</li>
-								</ul>
-								</nav>
-						</div>	
-				</div>		
+					
 	
+	</div>
 		
-		<!-- 换肤Modal -->
-		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-			<div class="modal-dialog" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				<h4 class="modal-title" id="myModalLabel">选择皮肤</h4>
-				</div>
-				<div class="modal-body">
-					<ul id="changeCssBox">
-						<li><a href="javascript:" >白色主题</a></li>
-						<li><a href="javascript:" >jk2.css</a></li>
-						<li><a href="javascript:" >jk3.css</a></li>
-						<li><a href="javascript:" >jk4.css</a></li>
-					</ul>
-				</div>
-				<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-				<button type="button" class="btn btn-primary" onclick="changeCss();">确定选取</button>
-				</div>
-			</div>
-			</div>
-		</div>
 	
 		<script src="../js/jquery1.11.3.min.js"></script>
 		<script src="../js/bootstrap.min.js"></script>
 		<script src="../echarts3.2.3/echarts.min.js"></script>
 		<script src="../js/perfect-scrollbar.min.js"></script> <!-- 滚动条优化 -->
+		<script src="../js/bootstrap-datetimepicker.min.js"></script> <!-- 时间选择插件 -->
+		<!-- <script src="../js/bootstrap-datetimepicker.fr.js"></script> -->  <!-- 时间选择插件 -->
+		<script src="../js/pie.js"></script>
+		<script src="../js/gauge.js"></script>
+		<script src="../js/common.js"></script>
 		
 
   <script>
 
 		$(document).ready(function() {			
-			/** 滚动条优化实例化 **/
-			/* $(function() {
-				att_box =["attention_box_auto01","attention_box_auto02","attention_box_auto03","attention_box_auto04","attention_box_auto05","attention_box_auto06"];
-				for(var a=0; a<att_box.length; a++){
-					Ps.initialize(document.getElementById(att_box[a]));
-				}
-			});	 */
+			/** 滚动条优化实例化 **/			
+			var att_box =["attention_box_auto01","attention_box_auto02","attention_box_auto03","attention_box_auto04","attention_box_auto05","attention_box_auto06"];
+			for(var a=0; a<att_box.length; a++){
+				Ps.initialize(document.getElementById(att_box[a]));
+			}
+			/** 时间选择插件datetimepicker实例化 **/
+			$('.form_datetime').datetimepicker({
+				format: "dd MM yyyy - hh:ii",
+				autoclose: true,
+				todayBtn: true,
+				pickerPosition: "bottom-left",
+				language: 'zh-CN'
+			});	
+
+			pie_l.echartCpu3Init();   //圆 cpu使用率
+			//pie_l.echartMemory3Init();   //圆 内存使用率
+			pie_right.echartAlarm3Init(); //圆 告警
+			gauge.echartHostInit();   //仪表盘 关注主机
+			gauge.echartApplyInit();  //仪表盘 关注引用
+
+						
 		})
+
+
+   
+
+
 
   </script>
   
