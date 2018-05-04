@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>监控中心嵌入ss页</title>
+    <title>监控中心嵌入页</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 	<link rel="stylesheet" href="../fonts/iconfont.css">	
@@ -17,7 +17,7 @@
   <body class="in_bg">
 	<div class="index_t clearfix">
 		<div class="pull-left title">监控概览</div>
-		<div class="pull-left form-inline form-group">
+		<div class="pull-left form-inline">
 			<div class="form-group">
 				<label>选择日期</label>
 				<input type="text" value="" class="form-control form_datetime" placeholder="请选择时间">
@@ -91,13 +91,13 @@
 			<div class="row">
 				<div class="col-md-6 col-sm-12">
 					<div class="shadow01 index_box">
-						<div class="index_title">CPU使用率TOP3</div>
+						<div class="index_title"><div class="title">CPU使用率TOP3</div></div>
 						<div class="index_pie" id="echartCpu3"></div>
 					</div>
 				</div>
 				<div class="col-md-6 col-sm-12">
 					<div class="shadow01 index_box">
-						<div class="index_title">告警总览</div>
+						<div class="index_title"><div class="title">告警总览</div></div>
 						<div class="index_pie" id="echartAlarm3"></div>
 					</div>
 				</div>
@@ -105,13 +105,13 @@
 			<div class="row">
 				<div class="col-md-6 col-sm-12">
 					<div class="shadow01 index_box">
-						<div class="index_title">内存使用率TOP3</div>
+						<div class="index_title"><div class="title">内存使用率TOP3</div></div>
 						<div class="index_pie" id="echartMemory3"></div>
 					</div>
 				</div>
 				<div class="col-md-6 col-sm-12">
 					<div class="shadow01 index_box">						
-						<div class="index_title">关注资源</div>
+						<div class="index_title"><div class="title">关注资源</div></div>
 						<div class="content">
 							
 							<table class="table border0 table_textline1">
@@ -220,7 +220,7 @@
 			<div class="row">
 				<div class="col-md-6 col-sm-12">
 					<div class="shadow01 index_box">
-						<div class="index_title">关注主机</div>
+						<div class="index_title"><div class="title">关注主机</div></div>
 						<div class="content">
 								<div class="attention_title_list clearfix">
 									<span class="textline1">当前状态：严重</span>
@@ -295,7 +295,7 @@
 				</div>
 				<div class="col-md-6 col-sm-12">
 					<div class="shadow01 index_box">
-						<div class="index_title">关注应用</div>
+						<div class="index_title"><div class="title">关注应用</div></div>
 						<div class="content">
 
 								<div class="attention_title_list clearfix">
@@ -378,7 +378,7 @@
 			<div class="row">
 					<div class="col-lg-12">
 						<div class="index_box">
-							<div class="index_title">本周告警列表</div>
+							<div class="index_title"><div class="title">本周告警列表</div></div>
 							<div class="content">
 								<table class="table table-bordered" style="margin-bottom:0">
 									<thead>
@@ -513,6 +513,7 @@
 		<!-- <script src="../js/bootstrap-datetimepicker.fr.js"></script> -->  <!-- 时间选择插件 -->
 		<script src="../js/pie.js"></script>
 		<script src="../js/gauge.js"></script>
+		<script src="../js/bar.js"></script>
 		<script src="../js/common.js"></script>
 		
 

@@ -4,7 +4,7 @@
 
 /** 框架上面 **/
 .index_t {
-  border-bottom: 1px solid #F0F3F8;
+  border-bottom: 1px solid #C6C6C6;
   padding: 15px 0; }
   .index_t .title {
     color: #333333;
@@ -19,6 +19,8 @@
   width: 20%;
   float: left;
   margin-bottom: 20px; }
+  .header_box.header_col4 {
+    width: 25%; }
   .header_box .l {
     width: 115px;
     height: 115px;
@@ -102,9 +104,14 @@
     position: absolute;
     left: 15px;
     top: 20px;
-    color: #333;
-    font-size: 18px;
-    font-weight: 700; }
+    right: 0; }
+    .index_box .index_title .title {
+      margin-right: 20px;
+      color: #333;
+      font-size: 18px;
+      font-weight: 700; }
+      .index_box .index_title .title.pull-left {
+        padding-top: 3px; }
   .index_box .content {
     margin-top: 40px; }
     .index_box .content table tbody tr td:first-child {

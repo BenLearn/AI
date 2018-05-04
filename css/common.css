@@ -167,15 +167,17 @@ html .textl {
 /** 按钮 **/
 .btnSearch {
   background: #D03600;
-  padding: 2px 8px; }
+  padding: 0px 6px; }
   .btnSearch .iconfont {
-    font-size: 18px;
+    font-size: 22px;
     color: #fff; }
 
 .btnItsm {
   padding: 3px 8px;
   background: #409EFF;
   color: #fff; }
+  .btnItsm.green {
+    background: #67C23A; }
 
 /** 标题 **/
 .table_title {
@@ -312,3 +314,5 @@ html .textl {
   background: #fff url(../img/data_bg.png) right 5px center no-repeat;
   padding-right: 20px;
   border: 0; }
+  .index_box .form_datetime {
+    background: #F0F3F8 url(../img/data_bg.png) right 5px center no-repeat; }
