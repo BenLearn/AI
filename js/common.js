@@ -34,3 +34,39 @@ function plan(){
         }
     })
 }
+
+//echart图 首页全实例化
+function echartIndexInit(){ 
+    pie_l.echartCpu3Init();   //圆 cpu使用率
+    pie_right.echartAlarm3Init(); //圆 告警
+    gauge.echartHostInit();   //仪表盘 关注主机
+    gauge.echartApplyInit();  //仪表盘 关注引用
+}
+//echart图 首页全实例化(查询)
+function echartIndexInitSearch(){
+    var data_parent = $(event.target).parents().eq(3).find(".form-inline");
+    var data_start_num = $(data_parent).find(".data_start").val();
+    var data_end_num = $(data_parent).find(".data_end").val();
+    if(data_start_num!='' && data_start_num!=null && data_end_num!='' && data_end_num!=null){
+        //BarCompany_chart.dispose();
+        pie_l_chart.dispose();   //圆 cpu使用率 销毁
+        pie_l_chart2.dispose();  //圆 cpu使用率 销毁
+        pie_right_chart.dispose();  //圆 告警 销毁
+        gauge_l_chart1.dispose(); //仪表盘 关注主机 销毁
+        gauge_l_chart2.dispose(); //仪表盘 关注主机 销毁
+        gauge_r_chart1.dispose(); //仪表盘 关注引用 销毁
+        gauge_r_chart2.dispose(); //仪表盘 关注引用 销毁
+        gauge_r_chart3.dispose(); //仪表盘 关注引用 销毁
+        gauge_r_chart4.dispose(); //仪表盘 关注引用 销毁
+        echartIndexInit();
+    }
+}
+
+//echart图 运维页面
+function echartYunInit(){ 
+	bar.echartBarJobNumInit();  //事件工单量实例化
+    bar.echartBarCompanyInit();  //影响单位事件量实例化
+
+    pie_yun.echartPieJobTypeInit();  //影响单位事件量实例化
+    pie_yun.echartPieJobCompanyInit();  //事件影响程度分布 实例化(查询)
+}

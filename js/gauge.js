@@ -201,8 +201,12 @@ var gauge = {
             typedate:'json',
             success:function(data){
                 var _gaugeLData = data.left;
-                for(var i=0; i<_gaugeLData.gauge_ID.length; i++){				
-                    var gauge_chart = echarts.init(document.getElementById(_gaugeLData.gauge_ID[i]));
+                for(var i=0; i<_gaugeLData.gauge_ID.length; i++){	
+                    if(i==0){                        
+                        gauge_l_chart1 = echarts.init(document.getElementById(_gaugeLData.gauge_ID[i]));
+                    }else if(i==1){
+                        gauge_l_chart2 = echarts.init(document.getElementById(_gaugeLData.gauge_ID[i]));
+                    }			
                     var gauge_option = gauge.getOption();
                     gauge_option.series[0].name = _gaugeLData.gauge_name[i]; 		    //名称
                     gauge_option.series[0].data = [{
@@ -210,7 +214,11 @@ var gauge = {
                                 value: Math.floor(_gaugeLData.gauge_value_list[i])   /** 使用率数值 **/
                             }];
                     //console.log(gauge_option);
-                    gauge.initChart(gauge_chart,gauge_option);
+                    if(i==0){ 
+                        gauge.initChart(gauge_l_chart1,gauge_option);
+                    }else if(i==1){
+                        gauge.initChart(gauge_l_chart2,gauge_option); 
+                    }
                 }
             }
 
@@ -224,8 +232,16 @@ var gauge = {
             dataType:'json',
             success:function(data){
                 var _gaugeRData = data.right;
-                for(var i=0; i<_gaugeRData.gauge_ID.length; i++){				
-                    var gauge_chart = echarts.init(document.getElementById(_gaugeRData.gauge_ID[i]));
+                for(var i=0; i<_gaugeRData.gauge_ID.length; i++){
+                    if(i=="0"){
+                        gauge_r_chart1 = echarts.init(document.getElementById(_gaugeRData.gauge_ID[i]));
+                    }else if(i=="1"){
+                        gauge_r_chart2 = echarts.init(document.getElementById(_gaugeRData.gauge_ID[i]));
+                    }else if(i=="2"){
+                        gauge_r_chart3 = echarts.init(document.getElementById(_gaugeRData.gauge_ID[i]));
+                    }else if(i=="3"){
+                        gauge_r_chart4 = echarts.init(document.getElementById(_gaugeRData.gauge_ID[i]));
+                    }						
                     var gauge_option = gauge.getOption();
                     gauge_option.series[0].name = _gaugeRData.gauge_name[i]; 		    //名称
                     gauge_option.series[0].data = [{
@@ -233,7 +249,15 @@ var gauge = {
                                 value: Math.floor(_gaugeRData.gauge_value_list[i])   /** 使用率数值 **/
                             }];
                     //console.log(gauge_option);
-                    gauge.initChart(gauge_chart,gauge_option);
+                    if(i=="0"){
+                        gauge.initChart(gauge_r_chart1,gauge_option);
+                    }else if(i=="1"){
+                        gauge.initChart(gauge_r_chart2,gauge_option);
+                    }else if(i=="2"){
+                        gauge.initChart(gauge_r_chart3,gauge_option);
+                    }else if(i=="3"){
+                        gauge.initChart(gauge_r_chart4,gauge_option);
+                    }	    
                 }
             }
         })

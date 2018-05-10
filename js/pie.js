@@ -419,8 +419,8 @@ var pie_l ={
             dataType: "json",
             success:function(data){
                 pie_t_data = data;
-
-                    var pie_chart = echarts.init(document.getElementById(pie_t_data.ID[0]));
+                
+                    pie_l_chart = echarts.init(document.getElementById(pie_t_data.ID[0]));
                     var pie_option = pie_l.getOption();					
                     /* pie_option.series[0].data = pie_t_data.sdata[i][0];					
                     pie_option.series[1].data = pie_t_data.sdata[i][1];	 */
@@ -432,10 +432,10 @@ var pie_l ={
                     pie_option.series[4].data[1].itemStyle = placeHolderStyle;  //放置变量。必须   
                     pie_option.series[5].data[1].itemStyle = placeHolderStyle1; //放置变量。必须                      
                      		
-                    pie_l.initChart(pie_chart,pie_option);
+                    pie_l.initChart(pie_l_chart,pie_option);
                     //console.log(pie_option);
 
-                    var pie_chart2 = echarts.init(document.getElementById(pie_t_data.ID[1]));
+                    pie_l_chart2 = echarts.init(document.getElementById(pie_t_data.ID[1]));
                     var pie_option2 = pie_l.getOption();					
                     /* pie_option2.series[0].data = pie_t_data.bdata[j][0];					
                     pie_option2.series[1].data = pie_t_data.bdata[j][1]; */                   
@@ -454,10 +454,10 @@ var pie_l ={
                     pie_option2.series[4].data[1].itemStyle = placeHolderStyle;  //放置变量。必须   
                     pie_option2.series[5].data[1].itemStyle = placeHolderStyle1; //放置变量。必须 
 
-                    pie_l.initChart(pie_chart2,pie_option2);
+                    pie_l.initChart(pie_l_chart2,pie_option2);
             },
             error:function(){
-                alert(2);
+                //alert(2);
             }
             
         })
@@ -647,12 +647,149 @@ var pie_right = {
             success:function(data){
                 piedata = data;                
                 //console.log(piedata);
-                var pie01_chart = echarts.init(document.getElementById('echartAlarm3'));
+                pie_right_chart = echarts.init(document.getElementById('echartAlarm3'));
                 var pie01_option = pie_right.getOption();					
-                pie_right.initChart(pie01_chart,pie01_option);
+                pie_right.initChart(pie_right_chart,pie01_option);
             },
             error:function(){
             }
         })
     }
 };
+
+//属于运维页面 （变形圆 凹凸）  事件类别分布 以及 事件影响程度分布  
+var pie_yun = {
+    getOption :function(){                      
+            option = {
+                color:["#DE1713","#10293C","#4CA8B4","#FB7B52","#92E7BE"],            
+                tooltip : {
+                    trigger: 'item',
+                    formatter: "{a} <br/>{b} : {c} ({d}%)"
+                },            
+                visualMap: {
+                    show: false,
+                    min: 80,
+                    max: 600,
+                    inRange: {
+                        //colorLightness: [0, 1] //明暗
+                    }
+                },
+                series : [
+                    {
+                        name:'事件类别分布',
+                        type:'pie',
+                        radius :['20%','55%'],
+                        center: ['50%', '60%'],
+                        data:[
+                            {value:400, name:'业务系统'},
+                            {value:150, name:'PC'},
+                            {value:274, name:'软件'},
+                            {value:235, name:'网络'},
+                            {value:300, name:'服务器'}
+                        ].sort(function (a, b) { return a.value - b.value; }),
+                        roseType: 'radius',
+                        label: {
+                            normal: {
+                                show:true,
+                                /* textStyle: {
+                                    color: 'rgba(255, 255, 255, 0.3)'
+                                } */
+                            }
+                        },
+                        labelLine: {
+                            normal: {
+                                show:true,
+                                /* lineStyle: {
+                                    color: 'rgba(255, 255, 255, 0.3)'
+                                }, */
+                                smooth: 0.2,
+                                length: 10,
+                                length2: 20
+                            }
+                        },
+                        itemStyle: {
+                            normal: {
+                                //color: '#c23531',
+                                /* shadowBlur: 200,
+                                shadowColor: 'rgba(0, 0, 0, 0.5)' */
+                            }
+                        },
+            
+                        animationType: 'scale',
+                        animationEasing: 'elasticOut',
+                        animationDelay: function (idx) {
+                            return Math.random() * 200;
+                        }
+                    }
+                ]
+            };
+            return option;
+    },
+    initChart :function(mychart,option){
+        mychart.setOption(option);
+        window.addEventListener("resize",function(){  /**echart自适应（拖动屏幕）**/
+            mychart.resize();
+        });
+    },
+    //事件类别分布 实例化
+    echartPieJobTypeInit:function(){  
+        $.ajax({
+            type:"GET",
+            url:'../json/pie_yun.json', 
+            typedate:'json',
+            success:function(data){
+                PieJobType_chart = echarts.init(document.getElementById("echartPieJobType"));
+                var _pieData = data.l;			
+                var pie_option = pie_yun.getOption();
+                pie_option.series[0].name = _pieData.name;
+                pie_option.series[0].data = _pieData.sdata.sort(function (a, b) { return a.value - b.value; }); 
+                pie_yun.initChart(PieJobType_chart,pie_option);
+                //console.log(pie_option.color);
+            },
+            error:function(){
+            }
+
+        })
+    },
+    //事件类别分布（查询） 实例化
+    echartPieJobTypeInitSearch:function(){
+        
+        var data_parent = $(event.target).parents().eq(3).find(".form-inline");
+        var data_start_num = $(data_parent).find(".data_start").val();
+        var data_end_num = $(data_parent).find(".data_end").val();
+        if(data_start_num!=''&&data_start_num!=null&&data_end_num!=''&&data_end_num!=null){
+            PieJobType_chart.dispose();
+            pie_yun.echartPieJobTypeInit();
+        }
+    },
+    //事件影响程度分布 实例化
+    echartPieJobCompanyInit:function(){
+        $.ajax({
+            type:"GET",
+            url:'../json/pie_yun.json', 
+            typedate:'json',
+            success:function(data){
+                PieJobCompany_chart = echarts.init(document.getElementById("echartPieJobCompany"));
+                var _pieData = data.r;			
+                var pie_option = pie_yun.getOption();
+                pie_option.series[0].name = _pieData.name;
+                pie_option.series[0].data = _pieData.sdata.sort(function (a, b) { return a.value - b.value; }); 
+                pie_yun.initChart(PieJobCompany_chart,pie_option);
+                //console.log(pie_option.color);
+            },
+            error:function(){
+            }
+
+        })
+    },
+    //事件影响程度分布 实例化(查询)
+    echartPieJobCompanyInitSearch:function(){
+        var data_parent = $(event.target).parents().eq(3).find(".form-inline");
+        var data_start_num = $(data_parent).find(".data_start").val();
+        var data_end_num = $(data_parent).find(".data_end").val();
+        if(data_start_num!=''&&data_start_num!=null&&data_end_num!=''&&data_end_num!=null){
+            PieJobCompany_chart.dispose();
+            pie_yun.echartPieJobCompanyInit();
+        }
+    }
+}

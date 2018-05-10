@@ -20,14 +20,14 @@
 		<div class="pull-left form-inline">
 			<div class="form-group">
 				<label>选择日期</label>
-				<input type="text" value="" class="form-control form_datetime" placeholder="请选择时间">
+				<input type="text" value="" class="form-control form_datetime data_start" placeholder="请选择时间">
 			</div>
 			<div class="form-group">
 				<label>&nbsp;&nbsp;至&nbsp;&nbsp;</label>
-				<input type="text" value="" class="form-control form_datetime" placeholder="请选择时间">
+				<input type="text" value="" class="form-control form_datetime data_end" placeholder="请选择时间">
 			</div>
 			<div class="form-group">
-				<button type="button" class="btn btnSearch" style="margin-left:10px;">
+				<button type="button" class="btn btnSearch" style="margin-left:10px;" onclick="echartIndexInitSearch();">
 					<span class="iconfont icon-search" data-toggle="tooltip" data-placement="bottom" title="搜索"></span>
 				</button>
 			</div>
@@ -113,105 +113,105 @@
 					<div class="shadow01 index_box">						
 						<div class="index_title"><div class="title">关注资源</div></div>
 						<div class="content">
-							
-							<table class="table border0 table_textline1">
-								<thead>
-									<tr>
-										<th style="width:20%;" class="display_in textline1"><div>资源名称资源名称资源名称资源名称资源名称资源名称资源名称</div></th>
-										<th><div>IP地址</div></th>
-										<th><div>监控类型</div></th>
-										<th><div>CPU利用率</div></th>
-										<th><div>内存利用率</div></th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<td><div class="resources_color orange">应用服务器2</div></td>
-										<td><div>192.168.1.38</div></td>
-										<td><div>Windows服务器</div></td>
-										<td>
-											<div class="orange">
-												<div class="plan_box">
-													<div class="plan shine"  style="width:100%"><span></span></div>
+							<div class="content_box" id="resourcesList">
+								<table class="table border0 table_textline1">
+									<thead>
+										<tr>
+											<th style="width:20%;" class="display_in textline1"><div>资源名称资源名称资源名称资源名称资源名称资源名称资源名称</div></th>
+											<th><div>IP地址</div></th>
+											<th><div>监控类型</div></th>
+											<th><div>CPU利用率</div></th>
+											<th><div>内存利用率</div></th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td><div class="resources_color orange">应用服务器2</div></td>
+											<td><div>192.168.1.38</div></td>
+											<td><div>Windows服务器</div></td>
+											<td>
+												<div class="orange">
+													<div class="plan_box">
+														<div class="plan shine"  style="width:100%"><span></span></div>
+													</div>
+													<span class="num">100%</span>
 												</div>
-												<span class="num">100%</span>
-											</div>
-										</td>
-										<td>
-											<div class="green">
-												<div class="plan_box">
-													<div class="plan shine"  style="width:33%"><span></span></div>
-												</div>
-												<span class="num">33%</span>
-											</div>	
-										</td>
-									</tr>
-									<tr>
-										<td><div class="resources_color yellow">流程公开应用支撑服务器</div></td>
-										<td><div>192.168.1.38</div></td>
-										<td><div>Windows服务器</div></td>
-										<td>
-											<div class="yellow">
-												<div class="plan_box">
-													<div class="plan shine"  style="width:33%"><span></span></div>
-												</div>
-												<span class="num">33%</span>
-											</div>	
-										</td>
-										<td>
-											<div class="green">
-												<div class="plan_box">
-													<div class="plan green shine"  style="width:33%"><span></span></div>
-												</div>
-												<span class="num">33%</span>
-											</div>	
-										</td>
-									</tr>
-									<tr class="green">
-										<td><div class="resources_color green">办公网万兆汇集交换机</div></td>
-										<td><div>192.168.1.38</div></td>
-										<td><div>Windows服务器</div></td>
-										<td>
-											<div>
-												<div class="plan_box">
-													<div class="plan shine"  style="width:66%"><span></span></div>
-												</div>
-												<span class="num">66%</span>
-											</div>	
-										</td>
-										<td>
-											<div>
-												<div class="plan_box">
-													<div class="plan shine"  style="width:33%"><span></span></div>
-												</div>
-												<span class="num">33%</span>
-											</div>	
-										</td>
-									</tr>
-									<tr class="green">
-										<td><div class="resources_color green">判断流程和诉讼服务网判断流程判断流程和诉讼服务网判断流程</div></td>
-										<td><div>192.168.1.38</div></td>
-										<td><div>Windows服务器</div></td>
-										<td>
-											<div>
-												<div class="plan_box">
-													<div class="plan shine"  style="width:66%"><span></span></div>
-												</div>
-												<span class="num">66%</span>
-											</div>	
-										</td>
-										<td>
-											<div>
-												<div class="plan_box">
-													<div class="plan shine"  style="width:33%"><span class="off"></span></div>
-												</div>
-												<span class="num">33%</span>
-											</div>	
-										</td>
-									</tr>
-								</tbody>
-							</table>
-
+											</td>
+											<td>
+												<div class="green">
+													<div class="plan_box">
+														<div class="plan shine"  style="width:33%"><span></span></div>
+													</div>
+													<span class="num">33%</span>
+												</div>	
+											</td>
+										</tr>
+										<tr>
+											<td><div class="resources_color yellow">流程公开应用支撑服务器</div></td>
+											<td><div>192.168.1.38</div></td>
+											<td><div>Windows服务器</div></td>
+											<td>
+												<div class="yellow">
+													<div class="plan_box">
+														<div class="plan shine"  style="width:33%"><span></span></div>
+													</div>
+													<span class="num">33%</span>
+												</div>	
+											</td>
+											<td>
+												<div class="green">
+													<div class="plan_box">
+														<div class="plan green shine"  style="width:33%"><span></span></div>
+													</div>
+													<span class="num">33%</span>
+												</div>	
+											</td>
+										</tr>
+										<tr class="green">
+											<td><div class="resources_color green">办公网万兆汇集交换机</div></td>
+											<td><div>192.168.1.38</div></td>
+											<td><div>Windows服务器</div></td>
+											<td>
+												<div>
+													<div class="plan_box">
+														<div class="plan shine"  style="width:66%"><span></span></div>
+													</div>
+													<span class="num">66%</span>
+												</div>	
+											</td>
+											<td>
+												<div>
+													<div class="plan_box">
+														<div class="plan shine"  style="width:33%"><span></span></div>
+													</div>
+													<span class="num">33%</span>
+												</div>	
+											</td>
+										</tr>
+										<tr class="green">
+											<td><div class="resources_color green">判断流程和诉讼服务网判断流程判断流程和诉讼服务网判断流程</div></td>
+											<td><div>192.168.1.38</div></td>
+											<td><div>Windows服务器</div></td>
+											<td>
+												<div>
+													<div class="plan_box">
+														<div class="plan shine"  style="width:66%"><span></span></div>
+													</div>
+													<span class="num">66%</span>
+												</div>	
+											</td>
+											<td>
+												<div>
+													<div class="plan_box">
+														<div class="plan shine"  style="width:33%"><span class="off"></span></div>
+													</div>
+													<span class="num">33%</span>
+												</div>	
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
 						</div>
 
 					</div>
@@ -294,7 +294,7 @@
 					</div>
 				</div>
 				<div class="col-md-6 col-sm-12">
-					<div class="shadow01 index_box">
+					<div class="index_box shadow01">
 						<div class="index_title"><div class="title">关注应用</div></div>
 						<div class="content">
 
@@ -377,7 +377,7 @@
 			</div>
 			<div class="row">
 					<div class="col-lg-12">
-						<div class="index_box">
+						<div class="index_box shadow01">
 							<div class="index_title"><div class="title">本周告警列表</div></div>
 							<div class="content">
 								<table class="table table-bordered" style="margin-bottom:0">
@@ -507,7 +507,7 @@
 	
 		<script src="../js/jquery1.11.3.min.js"></script>
 		<script src="../js/bootstrap.min.js"></script>
-		<script src="../echarts3.2.3/echarts.min.js"></script>
+		<script src="../echarts3.8.5/echarts.min.js"></script>
 		<script src="../js/perfect-scrollbar.min.js"></script> <!-- 滚动条优化 -->
 		<script src="../js/bootstrap-datetimepicker.min.js"></script> <!-- 时间选择插件 -->
 		<!-- <script src="../js/bootstrap-datetimepicker.fr.js"></script> -->  <!-- 时间选择插件 -->
@@ -521,25 +521,21 @@
 
 		$(document).ready(function() {			
 			/** 滚动条优化实例化 **/			
-			var att_box =["attention_box_auto01","attention_box_auto02","attention_box_auto03","attention_box_auto04","attention_box_auto05","attention_box_auto06"];
+			var att_box =["resourcesList","attention_box_auto01","attention_box_auto02","attention_box_auto03","attention_box_auto04","attention_box_auto05","attention_box_auto06"];
 			for(var a=0; a<att_box.length; a++){
 				Ps.initialize(document.getElementById(att_box[a]));
 			}
 			/** 时间选择插件datetimepicker实例化 **/
 			$('.form_datetime').datetimepicker({
-				format: "dd MM yyyy - hh:ii",
-				autoclose: true,
-				todayBtn: true,
-				pickerPosition: "bottom-left",
-				language: 'zh-CN'
+				format: "yyyy-mm-dd", //年月日
+				minView: "month",//设置只显示到月份
+				autoclose:true,//选中关闭
+  				todayBtn: true,//今日按钮
+				pickerPosition: "bottom-left", 
+				language: 'zh-CN' //中文 ==>common.js
 			});	
 
-			pie_l.echartCpu3Init();   //圆 cpu使用率
-			//pie_l.echartMemory3Init();   //圆 内存使用率
-			pie_right.echartAlarm3Init(); //圆 告警
-			gauge.echartHostInit();   //仪表盘 关注主机
-			gauge.echartApplyInit();  //仪表盘 关注引用
-
+			echartIndexInit(); //echart图 首页全实例化, ==>common.js
 						
 		})
 

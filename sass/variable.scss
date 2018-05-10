@@ -9,6 +9,7 @@ $c_blue:#0073D5;      // 蓝色(字体)
 $width_min:750px;       // 宽度(媒体选择)
 $width_md:1024px;
 $width_max:1200px;
+$width_big:1440px;
 @mixin border1_gray{
   border:1px solid $c_graymin1;  //边框颜色
 }

@@ -31,6 +31,36 @@ html .textl{text-align: left!important;}
   background: -webkit-linear-gradient( 90deg, rgb(5,124,199) 0%, rgb(41,155,227) 100%);
   background: -ms-linear-gradient( 90deg, rgb(5,124,199) 0%, rgb(41,155,227) 100%);}	
 .shadow01{-webkit-box-shadow: 0 0 10px rgba(0,0,0,.2); -moz-box-shadow: 0 0 10px rgba(0,0,0,.2); box-shadow: 0 0px 10px rgba(0,0,0,.2);}   /** 公共阴影 **/
+
+
+.form-control{
+  html &{
+    //border: 1px solid #2fabc9;
+    //color: #3edefa;
+    color: #333;
+    background: transparent;
+    //border-radius: 10px;
+  }
+}
+select{
+  &:not([multiple]){
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    text-indent: 1px;
+    text-overflow: '';
+    line-height: normal !important;
+    padding: {
+      right:30px;
+    }
+    background: {
+      image: url(../img/select-bg.png);
+      repeat: no-repeat;
+      position: right center;
+    }
+    //color: 
+  }  
+}
+
 /** 超出隐藏 **/
 .textline1{/*display: inline-block;*/ white-space: nowrap; text-overflow: ellipsis; overflow: hidden;}
 .textline2{overflow: hidden; text-overflow:ellipsis; display: -webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:2;}
@@ -145,6 +175,7 @@ html .textl{text-align: left!important;}
 
 /** 时间插件dome **/
 .form_datetime{
+  width:150px!important;
   background: #fff url(../img/data_bg.png) right 5px center no-repeat; 
   padding-right: 20px; 
   border:0;
@@ -152,3 +183,14 @@ html .textl{text-align: left!important;}
     background: #F0F3F8 url(../img/data_bg.png) right 5px center no-repeat; 
   }
 }
+
+
+table{
+  &.tabletdBorder0{
+    td{
+      border:0!important;
+    }
+  }    
+}
+.form-control_width{max-width: 50px!important; border:0; background-color:#F0F3F8;} //特殊宽度
+.form-control_width2{width: 250px!important; border:0; background-color:#F0F3F8;} //特殊宽度2

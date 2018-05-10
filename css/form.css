@@ -9,7 +9,8 @@
   .index_t .title {
     color: #333333;
     font-size: 24px;
-    margin-right: 20px; }
+    margin-right: 20px;
+    font-weight: 700; }
 
 /** 头部 **/
 .header {
@@ -104,7 +105,14 @@
     position: absolute;
     left: 15px;
     top: 20px;
-    right: 0; }
+    right: 0;
+    z-index: 9;
+    /* @media screen and(max-width:$width_big){
+      top:0px; 
+    }  */ }
+    @media screen and (max-width: 1440px) {
+      .yun .index_box .index_title {
+        top: 0px; } }
     .index_box .index_title .title {
       margin-right: 20px;
       color: #333;
@@ -112,8 +120,16 @@
       font-weight: 700; }
       .index_box .index_title .title.pull-left {
         padding-top: 3px; }
+      @media screen and (max-width: 1440px) {
+        .index_box .index_title .title + .form-inline {
+          margin-left: 0 !important; }
+          .yun .index_box .index_title .title + .form-inline {
+            width: 100%; } }
   .index_box .content {
     margin-top: 40px; }
+    .index_box .content .content_box {
+      height: 210px;
+      position: relative; }
     .index_box .content table tbody tr td:first-child {
       color: #0073D5; }
 

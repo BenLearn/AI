@@ -10,6 +10,7 @@
     color:#333333; 
     font-size: 24px;
     margin-right: 20px;
+    font-weight: 700;
   }
 }
 
@@ -102,6 +103,15 @@
     left: 15px;
     top:20px; 
     right:0;
+    z-index:9;//防止被挡住
+    /* @media screen and(max-width:$width_big){
+      top:0px; 
+    }  */
+    .yun & {
+      @media screen and(max-width:$width_big){
+        top:0px;
+      }      
+    }
     .title{
       margin-right: 20px;
       color:#333;
@@ -110,10 +120,21 @@
       &.pull-left{        
         padding-top: 3px;
       }
+      +.form-inline{
+        @media screen and(max-width:$width_big){
+          margin-left: 0!important;
+          .yun & {
+            width: 100%;
+          }
+        } 
+      }
     }
   }
   .content{
     margin-top:40px; 
+    .content_box{
+      height: 210px; position: relative; 
+    }
     table{
       tbody{
         tr{
@@ -237,5 +258,7 @@
 .index_gauge{
   height: 44%;
 }
+
+  
 
 

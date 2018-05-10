@@ -27,8 +27,8 @@
 		</div>
 	</div>
 	<div class="pd15">
-		<header class="header header_col4 clearfix">
-			<div class="clearfix header_box green">
+		<header class="header clearfix">
+			<div class="clearfix header_box green header_col4">
 				<div class="l">
 					<span class="iconfont icon-shijian"></span>
 				</div>
@@ -37,61 +37,43 @@
 					<a>21</a>
 				</div>
 			</div>
-			<div class="clearfix header_box orange">
+			<div class="clearfix header_box orange header_col4">
 				<div class="l">
 					<span class="iconfont icon-wenti"></span>
 				</div>
 				<div class="r">
-					<span>接口预警</span>
-					<a>226</a>
+					<span>当前事件</span>
+					<a>34</a>
 				</div>
 			</div>
-			<div class="clearfix header_box green">
+			<div class="clearfix header_box green header_col4">
 				<div class="l">
 					<span class="iconfont icon-biangeng"></span>
 				</div>
 				<div class="r">
-					<span>接口预警</span>
-					<a>226</a>
-				</div>
-			</div>
-			<div class="clearfix header_box green">
-				<div class="l">
-					<span class="iconfont icon-gaojing"></span>
-				</div>
-				<div class="r">
-					<span>接口预警</span>
-					<a>226</a>
-				</div>
-			</div>
-			<div class="clearfix header_box orange">
-				<div class="l">
-					<span class="iconfont icon-gaojing"></span>
-				</div>
-				<div class="r">
-					<span>接口预警</span>
-					<a>226</a>
+					<span>当前变更</span>
+					<a>1</a>
 				</div>
 			</div>
 		</header>
 		<!-- 主体start -->
-		<div>
+		<div class="yun">
 			<div class="row">
 				<div class="col-lg-12">
-					<div class="index_box">
+					<div class="index_box shadow01">
 						<div class="index_title clearfix">
-							<div class="title pull-left">本周告警列表</div>
+							<div class="title pull-left">事件工单量</div>
 							<div class="pull-left form-inline">
 								<div class="form-group">
 									<label>选择日期</label>
-									<input type="text" value="" class="form-control form_datetime" placeholder="请选择时间">
+									<input type="text" value="" class="form-control form_datetime data_start" placeholder="请选择时间">
 								</div>
 								<div class="form-group">
 									<label>&nbsp;&nbsp;至&nbsp;&nbsp;</label>
-									<input type="text" value="" class="form-control form_datetime" placeholder="请选择时间">
+									<input type="text" value="" class="form-control form_datetime data_end" placeholder="请选择时间">
 								</div>
 								<div class="form-group">
-									<button type="button" class="btn btnSearch" style="margin-left:10px;">
+									<button type="button" class="btn btnSearch" style="margin-left:10px;" onclick="bar.echartBarJobNumInitSearch()">
 										<span class="iconfont icon-search" data-toggle="tooltip" data-placement="bottom" title="搜索"></span>
 									</button>
 								</div>
@@ -103,140 +85,129 @@
 			</div>				
 			<div class="row">
 				<div class="col-md-6 col-sm-12">
-					<div class="shadow01 index_box">
-						<div class="index_title">CPU使用率TOP3</div>
-						<div class="index_pie" id="echartCpu3"></div>
+					<div class="index_box shadow01">
+						<div class="index_title clearfix">
+							<div class="title pull-left">事件类别分布</div>
+							<div class="pull-left form-inline">
+								<div class="form-group">
+									<select class="form-control">
+										<option>年</option>
+										<option>月</option>
+										<option>日</option>
+									</select>
+									&nbsp;&nbsp;
+								</div>
+								<div class="form-group">
+									<label>选择日期</label>
+									<input type="text" value="" class="form-control form_datetime data_start" placeholder="请选择时间">
+								</div>
+								<div class="form-group">
+									<label>&nbsp;&nbsp;至&nbsp;&nbsp;</label>
+									<input type="text" value="" class="form-control form_datetime data_end" placeholder="请选择时间">
+								</div>
+								<div class="form-group">
+									<button type="button" class="btn btnSearch" style="margin-left:10px;" onclick="pie_yun.echartPieJobTypeInitSearch();">
+										<span class="iconfont icon-search" data-toggle="tooltip" data-placement="bottom" title="搜索"></span>
+									</button>
+								</div>
+							</div>
+						</div>
+						<div class="index_pie" id="echartPieJobType"></div>
 					</div>
 				</div>
 				<div class="col-md-6 col-sm-12">
-					<div class="shadow01 index_box">
-						<div class="index_title">告警总览</div>
-						<div class="index_pie" id="echartAlarm3"></div>
+					<div class="index_box shadow01">
+						<div class="index_title clearfix">
+							<div class="title pull-left">事件影响程度分布</div>
+							<div class="pull-left form-inline">
+								<div class="form-group">
+									<label>选择日期</label>
+									<input type="text" value="" class="form-control form_datetime data_start" placeholder="请选择时间">
+								</div>
+								<div class="form-group">
+									<label>&nbsp;&nbsp;至&nbsp;&nbsp;</label>
+									<input type="text" value="" class="form-control form_datetime data_end" placeholder="请选择时间">
+								</div>
+								<div class="form-group" onclick="pie_yun.echartPieJobCompanyInitSearch()">
+									<button type="button" class="btn btnSearch" style="margin-left:10px;">
+										<span class="iconfont icon-search" data-toggle="tooltip" data-placement="bottom" title="搜索"></span>
+									</button>
+								</div>
+							</div>
+						</div>
+						<div class="index_pie" id="echartPieJobCompany"></div>
 					</div>
 				</div>
 			</div>
 			<div class="row">
-					<div class="col-lg-12">
-						<div class="index_box">
-							<div class="index_title">本周告警列表</div>
-							<div class="content">
-								<table class="table table-bordered" style="margin-bottom:0">
-									<thead>
-										<tr>
-										<th></th>
-										<th>标题</th>
-										<th>来源</th>
-										<th>类型</th>
-										<th>处理人</th>
-										<th class="text-center">重要程度</th>
-										<th>状态</th>
-										<th>发生时间</th>
-										<th>最后发生时间</th>
-										<th>操作</th>
-										</tr>
-									</thead>
+				<div class="col-md-6 col-sm-12">
+					<div class="index_box shadow01">
+						<div class="index_title clearfix">
+							<div class="title pull-left">影响单位事件量</div>
+							<div class="pull-left form-inline">
+								<div class="form-group">
+									<label>选择日期</label>
+									<input type="text" value="" class="form-control form_datetime data_start" placeholder="请选择时间">
+								</div>
+								<div class="form-group">
+									<label>&nbsp;&nbsp;至&nbsp;&nbsp;</label>
+									<input type="text" value="" class="form-control form_datetime data_end" placeholder="请选择时间">
+								</div>
+								<div class="form-group">
+									<label>&nbsp;&nbsp;TOP&nbsp;&nbsp;</label>
+									<input type="text" value="" class="form-control form-control_width" placeholder="">
+								</div>
+								<div class="form-group">
+									<button type="button" class="btn btnSearch" style="margin-left:10px;"  onclick="bar.echartBarCompanyInitSearch()">
+										<span class="iconfont icon-search" data-toggle="tooltip" data-placement="bottom" title="搜索"></span>
+									</button>
+								</div>
+							</div>
+						</div>
+						<div class="index_pie" id="echartBarCompany"></div>
+					</div>
+				</div>
+				<div class="col-md-6 col-sm-12">
+					<div class="index_box shadow01">
+						<div class="index_title clearfix">
+							<div class="title pull-left">运维人员</div>
+							<div class="pull-left form-inline" style="margin-left: 20px;">
+								<div class="form-group">
+									<label>人员查询</label>
+									<input type="text" value="" class="form-control form-control_width2" placeholder="请输入姓名或者账号">
+								</div>
+								<div class="form-group">
+									<button type="button" class="btn btnSearch" style="margin-left:10px;"  onclick="bar.echartBarCompanyInitSearch()">
+										<span class="iconfont icon-search" data-toggle="tooltip" data-placement="bottom" title="搜索"></span>
+									</button>
+								</div>
+							</div>
+						</div>
+						<div class="content">
+							<div class="content_box" id="yunUser">
+								<table class="table table-hover table-striped  tabletdBorder0">
 									<tbody>
 										<tr>
-										<th scope="row">
-											<input type="checkbox" checked>
-										</th>
-										<td>WIN-N44K38L4LV4_cms_web上的查询在缓存中的命中率指标产生主要级别告警</td>
-										<td>WIN-N44K38L4LV4_cms_web</td>
-										<td>Mysql</td>
-										<td>一线运维1</td>
-										<td class="text-center color_or">主要</td>
-										<td>未确认</td>
-										<td>2017-05-16  11:35:15</td>
-										<td>2017-05-16  11:35:15</td>
-										<td class="text-center">									
-											<a href="javascript:" class="iconfont icon-operate_list_01 margin_r5" data-toggle="tooltip" data-placement="bottom" title="确认"></a>
-											<a href="javascript:" class="iconfont icon-operate_list_02 margin_r5" data-toggle="tooltip" data-placement="bottom" title="确认"></a>
-											<a href="javascript:" class="iconfont icon-operate_list_03 margin_r5" data-toggle="tooltip" data-placement="bottom" title="删除"></a>
-											<a href="javascript:" class="iconfont icon-operate_list_04" data-toggle="tooltip" data-placement="bottom" title="拓扑"></a>
-										</td>
+											<td>张三</td>
+											<td>张三</td>
+											<td>张三</td>
 										</tr>
 										<tr>
-										<th scope="row">
-											<input type="checkbox">
-										</th>
-										<td>WIN-N44K38L4LV4_cms_web上的查询在缓存中的命中率指标产生主要级别告警</td>
-										<td>WIN-N44K38L4LV4_cms_web</td>
-										<td>Mysql</td>
-										<td>一线运维1</td>
-										<td class="text-center color_or">主要</td>
-										<td>未确认</td>
-										<td>2017-05-16  11:35:15</td>
-										<td>2017-05-16  11:35:15</td>
-										<td class="text-center">									
-											<a href="javascript:" class="iconfont icon-operate_list_01 margin_r5" data-toggle="tooltip" data-placement="bottom" title="确认"></a>
-											<a href="javascript:" class="iconfont icon-operate_list_02 margin_r5" data-toggle="tooltip" data-placement="bottom" title="确认"></a>
-											<a href="javascript:" class="iconfont icon-operate_list_03 margin_r5" data-toggle="tooltip" data-placement="bottom" title="删除"></a>
-											<a href="javascript:" class="iconfont icon-operate_list_04" data-toggle="tooltip" data-placement="bottom" title="拓扑"></a>
-										</td>
+											<td>张三</td>
+											<td>张三</td>
+											<td>张三</td>
 										</tr>
 										<tr>
-										<th scope="row">
-											<input type="checkbox">
-										</th>
-										<td>WIN-N44K38L4LV4_cms_web上的查询在缓存中的命中率指标产生主要级别告警</td>
-										<td>WIN-N44K38L4LV4_cms_web</td>
-										<td>Mysql</td>
-										<td>一线运维1</td>
-										<td class="text-center color_or">主要</td>
-										<td>未确认</td>
-										<td>2017-05-16  11:35:15</td>
-										<td>2017-05-16  11:35:15</td>
-										<td class="text-center">									
-											<a href="javascript:" class="iconfont icon-operate_list_01 margin_r5" data-toggle="tooltip" data-placement="bottom" title="确认"></a>
-											<a href="javascript:" class="iconfont icon-operate_list_02 margin_r5" data-toggle="tooltip" data-placement="bottom" title="确认"></a>
-											<a href="javascript:" class="iconfont icon-operate_list_03 margin_r5" data-toggle="tooltip" data-placement="bottom" title="删除"></a>
-											<a href="javascript:" class="iconfont icon-operate_list_04" data-toggle="tooltip" data-placement="bottom" title="拓扑"></a>
-										</td>
-										</tr>
-										<tr>
-										<th scope="row">
-											<input type="checkbox">
-										</th>
-										<td>WIN-N44K38L4LV4_cms_web上的查询在缓存中的命中率指标产生主要级别告警</td>
-										<td>WIN-N44K38L4LV4_cms_web</td>
-										<td>Mysql</td>
-										<td>一线运维1</td>
-										<td class="text-center">警告</td>
-										<td>未确认</td>
-										<td>2017-05-16  11:35:15</td>
-										<td>2017-05-16  11:35:15</td>
-										<td class="text-center">									
-											<a href="javascript:" class="iconfont icon-operate_list_01 margin_r5" data-toggle="tooltip" data-placement="bottom" title="确认"></a>
-											<a href="javascript:" class="iconfont icon-operate_list_02 margin_r5" data-toggle="tooltip" data-placement="bottom" title="确认"></a>
-											<a href="javascript:" class="iconfont icon-operate_list_03 margin_r5" data-toggle="tooltip" data-placement="bottom" title="删除"></a>
-											<a href="javascript:" class="iconfont icon-operate_list_04" data-toggle="tooltip" data-placement="bottom" title="拓扑"></a>
-										</td>
+											<td>张三</td>
+											<td>张三</td>
+											<td>张三</td>
 										</tr>
 									</tbody>
-									</table>
-									<!-- 分页 -->
-									<nav aria-label="Page navigation" class="clearfix navigation_bg">
-									<ul class="pagination pull-right">
-										<li>
-										<a href="javascript:" aria-label="Previous" data-toggle="tooltip" data-placement="top" title="上一页">
-											<span aria-hidden="true">&laquo;</span>&nbsp;上一页
-										</a>
-										</li>
-										<li><a href="#">1</a></li>
-										<li><a href="#">2</a></li>
-										<li><a href="#">3</a></li>
-										<li><a href="#">4</a></li>
-										<li><a href="#">5</a></li>
-										<li>
-										<a href="javascript:" aria-label="Next" data-toggle="tooltip" data-placement="top" title="下一页">
-											下一页&nbsp;<span aria-hidden="true">&raquo;</span>
-										</a>
-										</li>
-									</ul>
-									</nav>
-							</div>
-						</div>		
-					</div>	
+								</table>
+							</div>							
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>	
 		<!-- 主体end -->	
@@ -247,7 +218,7 @@
 	
 		<script src="../js/jquery1.11.3.min.js"></script>
 		<script src="../js/bootstrap.min.js"></script>
-		<script src="../echarts3.2.3/echarts.min.js"></script>
+		<script src="../echarts3.8.5/echarts.min.js"></script>
 		<script src="../js/perfect-scrollbar.min.js"></script> <!-- 滚动条优化 -->
 		<script src="../js/bootstrap-datetimepicker.min.js"></script> <!-- 时间选择插件 -->
 		<!-- <script src="../js/bootstrap-datetimepicker.fr.js"></script> -->  <!-- 时间选择插件 -->
@@ -261,24 +232,52 @@
 
 		$(document).ready(function() {			
 			/** 滚动条优化实例化 **/			
-			/* var att_box =["attention_box_auto01","attention_box_auto02","attention_box_auto03","attention_box_auto04","attention_box_auto05","attention_box_auto06"];
+			var att_box =["yunUser"];
 			for(var a=0; a<att_box.length; a++){
 				Ps.initialize(document.getElementById(att_box[a]));
-			} */
+			}
 			/** 时间选择插件datetimepicker实例化 **/
 			$('.form_datetime').datetimepicker({
-				format: "dd MM yyyy - hh:ii",
-				autoclose: true,
-				todayBtn: true,
-				pickerPosition: "bottom-left",
-				language: 'zh-CN'
+				format: "yyyy-mm-dd", //年月日
+				minView: "month",//设置只显示到月份
+				autoclose:true,//选中关闭
+  				todayBtn: true,//今日按钮
+				pickerPosition: "bottom-left", 
+				language: 'zh-CN' //中文 ==>common.js
 			});
 
-			bar.echartBarJobNumInit();
-
-
-						
+			userTableInit(); //表格实例化
+			echartYunInit(); //echart图 运维页全实例化, ==>common.js
+			
 		})
+
+		function userTableInit(){
+			var tableDate = [
+				{"name":"张三","event":"5","job":"1"},
+				{"name":"张三","event":"5","job":"1"},
+				{"name":"张三","event":"5","job":"1"},
+				{"name":"张三","event":"5","job":"1"},
+				{"name":"张三","event":"5","job":"1"},
+				{"name":"张三","event":"5","job":"1"},
+				{"name":"张三","event":"5","job":"1"},
+				{"name":"张三","event":"5","job":"1"},
+				{"name":"张三","event":"5","job":"1"},
+				{"name":"张三","event":"5","job":"1"},
+				{"name":"张三","event":"5","job":"1"}
+			]
+			var tpl ="";
+			$("#yunUser").text("");
+			tpl+='<table class="table table-hover table-striped tabletdBorder0"><tbody>';
+			for(var i=0; i<tableDate.length; i++){
+				tpl+='<tr>'
+				+'<td>'+tableDate[i].name+'</td>'
+				+'<td>待处理事件 【'+tableDate[i].event+'】</td>'
+				+'<td>待执行变更任务 【'+tableDate[i].job+'】</td>'
+				+'</tr>';	
+			}		
+			tpl+='<tbody></table>'
+			$("#yunUser").append(tpl);
+		}
 
 
    
