@@ -105,6 +105,11 @@ select{
     background: #67C23A;
   }
 }
+.btnTip{
+  @include radius(0);
+  border:1px solid #447ab6;
+  color:#447ab6;
+}
 
 
 /** 标题 **/

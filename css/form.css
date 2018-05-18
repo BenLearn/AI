@@ -226,3 +226,22 @@
 
 .index_gauge {
   height: 44%; }
+
+/** 提示页 **/
+.tip_content_box {
+  float: left;
+  position: relative;
+  left: 50%; }
+  .tip_content_box .tip_content {
+    position: relative;
+    left: -50%;
+    padding-top: 150px; }
+    .tip_content_box .tip_content > div {
+      display: inline-block;
+      vertical-align: middle; }
+      .tip_content_box .tip_content > div .tip_about {
+        margin: 20px 0 15px; }
+        .tip_content_box .tip_content > div .tip_about > p {
+          color: #2d2d2d; }
+    .tip_content_box .tip_content > div.r {
+      padding-left: 40px; }
