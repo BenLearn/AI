@@ -26,7 +26,7 @@ html .textl{text-align: left!important;}
 .margin0{margin:0!important;}
 .margin_r5{margin-right:5px;}
 .padding0{padding:0!important;}
-.padding15{padding:15!important;}
+.padding15{padding:15px!important;}
 .button_inbg{background: -moz-linear-gradient( 90deg, rgb(5,124,199) 0%, rgb(41,155,227) 100%);    /** 按钮 渐变 **/
   background: -webkit-linear-gradient( 90deg, rgb(5,124,199) 0%, rgb(41,155,227) 100%);
   background: -ms-linear-gradient( 90deg, rgb(5,124,199) 0%, rgb(41,155,227) 100%);}	
@@ -58,7 +58,10 @@ select{
       position: right center;
     }
     //color: 
-  }  
+  }
+  &::-ms-expand{
+    display: none; //隐藏右三角
+  } 
 }
 
 /** 超出隐藏 **/

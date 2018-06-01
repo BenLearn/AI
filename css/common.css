@@ -92,7 +92,7 @@ html .textl {
   padding: 0 !important; }
 
 .padding15 {
-  padding: 15 !important; }
+  padding: 15px !important; }
 
 .button_inbg {
   background: -moz-linear-gradient(90deg, #057cc7 0%, #299be3 100%);
@@ -120,6 +120,9 @@ select:not([multiple]) {
   background-image: url(../img/select-bg.png);
   background-repeat: no-repeat;
   background-position: right center; }
+
+select::-ms-expand {
+  display: none; }
 
 /** 超出隐藏 **/
 .textline1 {
